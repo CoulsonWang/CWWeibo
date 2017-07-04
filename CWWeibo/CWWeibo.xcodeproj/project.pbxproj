@@ -307,6 +307,7 @@
 				DEVELOPMENT_TEAM = 76G5YKQF73;
 				INFOPLIST_FILE = CWWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = Personal.YYWang.CWWeibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

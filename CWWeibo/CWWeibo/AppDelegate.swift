@@ -44,3 +44,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+func CWLog<T>(messsage : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+    
+    #if DEBUG
+        
+        let fileName = (file as NSString).lastPathComponent.components(separatedBy: ".").first
+        if let fileName = fileName {
+            print("File:\(fileName),Function:\(funcName),Line:(\(lineNum)),Info:\(messsage)")
+        }
+        
+    #endif
+}
+
