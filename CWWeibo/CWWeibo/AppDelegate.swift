@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 
-func CWLog<T>(messsage : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+func CWLog<T>(_ messsage : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
     
     #if DEBUG
         

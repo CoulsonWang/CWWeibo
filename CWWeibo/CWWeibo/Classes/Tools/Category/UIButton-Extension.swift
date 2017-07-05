@@ -14,8 +14,8 @@ extension UIButton {
         self.init()
         setImage(image, for: .normal)
         setImage(highlightedImage, for: .highlighted)
-        setImage(backgroundImage, for: .normal)
-        setImage(highlightedImage, for: .highlighted)
+        setBackgroundImage(backgroundImage, for: .normal)
+        setBackgroundImage(highlightedImage, for: .highlighted)
         sizeToFit()
     }
 }
