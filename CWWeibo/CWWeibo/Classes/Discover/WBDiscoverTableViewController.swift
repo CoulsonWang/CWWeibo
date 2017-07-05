@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WBDiscoverTableViewController: UITableViewController {
+class WBDiscoverTableViewController: WBBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
