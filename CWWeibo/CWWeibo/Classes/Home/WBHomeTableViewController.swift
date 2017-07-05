@@ -9,6 +9,8 @@
 import UIKit
 
 class WBHomeTableViewController: WBBaseTableViewController {
+    var isPresented = false
+    
     // MARK:- 懒加载
     fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
     // MARK:- Life Cycle
@@ -61,7 +63,64 @@ extension WBHomeTableViewController {
 
 // MARK: - UIViewControllerTransitioningDelegate
 extension WBHomeTableViewController : UIViewControllerTransitioningDelegate {
+    //改变弹出View的尺寸
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return WBPresentationController(presentedViewController: presented, presenting: presenting)
     }
+    //改变弹出动画
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresented = true
+        return self
+    }
+    
+    //改变消失动画
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresented = false
+        return self
+    }
+}
+
+// MARK: - UIViewControllerAnimatedTransitioning
+extension WBHomeTableViewController : UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.25
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        isPresented ? animationForPresentedView(transitionContext: transitionContext) : animationForDismissView(transitionContext: transitionContext)
+    }
+    
+}
+
+extension WBHomeTableViewController {
+    fileprivate func animationForPresentedView(transitionContext: UIViewControllerContextTransitioning) -> Void {
+        let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        
+        transitionContext.containerView.addSubview(presentedView)
+        presentedView.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
+        
+        presentedView.transform = CGAffineTransform(scaleX: 0.0,y: 0.0)
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+            presentedView.transform = CGAffineTransform.identity
+        }) { (_) in
+            transitionContext.completeTransition(true)
+        }
+    }
+    
+    fileprivate func animationForDismissView(transitionContext: UIViewControllerContextTransitioning) -> Void {
+        let dismissView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
+        
+        transitionContext.containerView.addSubview(dismissView)
+        dismissView.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
+        
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+            dismissView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+        }) { (_) in
+            dismissView.removeFromSuperview()
+            self.titleBtn.isSelected = !self.titleBtn.isSelected
+            transitionContext.completeTransition(true)
+        }
+
+    }
+
 }
