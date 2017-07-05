@@ -15,9 +15,12 @@ class WBVisitorView: UIView {
     }
     
     // MARK:- 控件的属性
-    @IBOutlet weak var rotationView: UIImageView!
-    @IBOutlet weak var iconView: UIImageView!
-    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var registBtn: UIButton!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak private var rotationView: UIImageView!
+    @IBOutlet weak private var iconView: UIImageView!
+    @IBOutlet weak private var tipLabel: UILabel!
+
     
     // MARK:- 自定义函数
     func setupVisitorViewInfo(iconImage : UIImage, title : String) {

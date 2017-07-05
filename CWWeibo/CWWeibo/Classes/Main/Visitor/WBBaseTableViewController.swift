@@ -14,6 +14,7 @@ class WBBaseTableViewController: UITableViewController {
     
     var isLogin : Bool = false
     
+    
     override func loadView() {
         isLogin ? super.loadView() : setupVisitorView()
     }
@@ -21,14 +22,35 @@ class WBBaseTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNavigationItems()
     }
 
 
 }
 
+// MARK:- 设置UI界面
 extension WBBaseTableViewController {
     
     fileprivate func setupVisitorView() {
         view = visitorView
+        visitorView.registBtn.addTarget(self, action: #selector(registBtnClick), for: .touchUpInside)
+        visitorView.loginBtn.addTarget(self, action: #selector(loginBtnClick), for: .touchUpInside)
+    }
+    
+    fileprivate func setupNavigationItems() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(registBtnClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(loginBtnClick))
+    }
+}
+
+// MARK:- 监听事件
+extension WBBaseTableViewController {
+    @objc fileprivate func registBtnClick() {
+        CWLog()
+    }
+    
+    @objc fileprivate func loginBtnClick() -> Void {
+        CWLog()
     }
 }

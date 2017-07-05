@@ -72,6 +72,8 @@
             </constraints>
             <connections>
                 <outlet property="iconView" destination="gI1-bl-qJs" id="xd8-xn-12r"/>
+                <outlet property="loginBtn" destination="j4Z-Zp-HGQ" id="VMt-tJ-2iT"/>
+                <outlet property="registBtn" destination="NLd-ig-w7u" id="mp4-9n-0IR"/>
                 <outlet property="rotationView" destination="4WI-Xr-Adh" id="s33-SX-nPB"/>
                 <outlet property="tipLabel" destination="Ouy-pg-sCx" id="gRc-OC-hHG"/>
             </connections>
