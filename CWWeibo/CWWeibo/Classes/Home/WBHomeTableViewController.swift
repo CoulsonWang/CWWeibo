@@ -49,5 +49,19 @@ extension WBHomeTableViewController {
     
     @objc fileprivate func titleBtnClick(_ button : WBNavigationTitleButton) {
         button.isSelected = !button.isSelected
+        
+        //弹出控制器
+        let popVc = WBPopoverViewController()
+        popVc.modalPresentationStyle = .custom
+        popVc.transitioningDelegate = self
+        
+        present(popVc, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UIViewControllerTransitioningDelegate
+extension WBHomeTableViewController : UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return WBPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

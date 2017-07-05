@@ -13,6 +13,9 @@
 		B9A5E4321F0CCC9D00DB9401 /* WBVisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A5E4311F0CCC9D00DB9401 /* WBVisitorView.xib */; };
 		B9A5E4341F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E4331F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift */; };
 		B9A5E4361F0CEDD400DB9401 /* WBNavigationTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E4351F0CEDD400DB9401 /* WBNavigationTitleButton.swift */; };
+		B9A5E43C1F0CF2B200DB9401 /* WBPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E43A1F0CF2B200DB9401 /* WBPopoverViewController.swift */; };
+		B9A5E43D1F0CF2B200DB9401 /* WBPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A5E43B1F0CF2B200DB9401 /* WBPopoverViewController.xib */; };
+		B9A5E43F1F0D135F00DB9401 /* WBPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E43E1F0D135F00DB9401 /* WBPresentationController.swift */; };
 		B9C5C33F1F0BDD1500878125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C33E1F0BDD1500878125 /* AppDelegate.swift */; };
 		B9C5C3461F0BDD1500878125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3451F0BDD1500878125 /* Assets.xcassets */; };
 		B9C5C3491F0BDD1500878125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3471F0BDD1500878125 /* LaunchScreen.storyboard */; };
@@ -37,6 +40,9 @@
 		B9A5E4311F0CCC9D00DB9401 /* WBVisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBVisitorView.xib; sourceTree = "<group>"; };
 		B9A5E4331F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		B9A5E4351F0CEDD400DB9401 /* WBNavigationTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBNavigationTitleButton.swift; sourceTree = "<group>"; };
+		B9A5E43A1F0CF2B200DB9401 /* WBPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPopoverViewController.swift; sourceTree = "<group>"; };
+		B9A5E43B1F0CF2B200DB9401 /* WBPopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBPopoverViewController.xib; sourceTree = "<group>"; };
+		B9A5E43E1F0D135F00DB9401 /* WBPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPresentationController.swift; sourceTree = "<group>"; };
 		B9C5C33B1F0BDD1500878125 /* CWWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C5C33E1F0BDD1500878125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9C5C3451F0BDD1500878125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +101,16 @@
 			path = Visitor;
 			sourceTree = "<group>";
 		};
+		B9A5E4371F0CF26100DB9401 /* UIPopover */ = {
+			isa = PBXGroup;
+			children = (
+				B9A5E43A1F0CF2B200DB9401 /* WBPopoverViewController.swift */,
+				B9A5E43B1F0CF2B200DB9401 /* WBPopoverViewController.xib */,
+				B9A5E43E1F0D135F00DB9401 /* WBPresentationController.swift */,
+			);
+			path = UIPopover;
+			sourceTree = "<group>";
+		};
 		B9C5C3321F0BDD1500878125 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +166,7 @@
 		B9C5C3661F0CAD7D00878125 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B9A5E4371F0CF26100DB9401 /* UIPopover */,
 				B9C5C37E1F0CB2FA00878125 /* Home.storyboard */,
 				B9C5C3741F0CB22800878125 /* WBHomeTableViewController.swift */,
 			);
@@ -257,6 +274,7 @@
 				B9C5C3811F0CB30200878125 /* Message.storyboard in Resources */,
 				B9C5C3461F0BDD1500878125 /* Assets.xcassets in Resources */,
 				B9C5C37F1F0CB2FA00878125 /* Home.storyboard in Resources */,
+				B9A5E43D1F0CF2B200DB9401 /* WBPopoverViewController.xib in Resources */,
 				B9A5E4321F0CCC9D00DB9401 /* WBVisitorView.xib in Resources */,
 				B9C5C3561F0C9B7C00878125 /* MainVCSettings.json in Resources */,
 				B9C5C3721F0CB01200878125 /* Publish.storyboard in Resources */,
@@ -279,11 +297,13 @@
 				B9C5C3751F0CB22800878125 /* WBHomeTableViewController.swift in Sources */,
 				B9C5C33F1F0BDD1500878125 /* AppDelegate.swift in Sources */,
 				B9C5C3771F0CB23B00878125 /* WBMessageTableViewController.swift in Sources */,
+				B9A5E43F1F0D135F00DB9401 /* WBPresentationController.swift in Sources */,
 				B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */,
 				B9A5E4361F0CEDD400DB9401 /* WBNavigationTitleButton.swift in Sources */,
 				B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */,
 				B9C5C3791F0CB24300878125 /* WBDiscoverTableViewController.swift in Sources */,
 				B9C5C36B1F0CAD7D00878125 /* WBMainViewController.swift in Sources */,
+				B9A5E43C1F0CF2B200DB9401 /* WBPopoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
