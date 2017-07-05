@@ -11,6 +11,7 @@
 		B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */; };
 		B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */; };
 		B9A5E4321F0CCC9D00DB9401 /* WBVisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A5E4311F0CCC9D00DB9401 /* WBVisitorView.xib */; };
+		B9A5E4341F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E4331F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift */; };
 		B9C5C33F1F0BDD1500878125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C33E1F0BDD1500878125 /* AppDelegate.swift */; };
 		B9C5C3461F0BDD1500878125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3451F0BDD1500878125 /* Assets.xcassets */; };
 		B9C5C3491F0BDD1500878125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3471F0BDD1500878125 /* LaunchScreen.storyboard */; };
@@ -33,6 +34,7 @@
 		B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBBaseTableViewController.swift; sourceTree = "<group>"; };
 		B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
 		B9A5E4311F0CCC9D00DB9401 /* WBVisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBVisitorView.xib; sourceTree = "<group>"; };
+		B9A5E4331F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		B9C5C33B1F0BDD1500878125 /* CWWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C5C33E1F0BDD1500878125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9C5C3451F0BDD1500878125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				B9A5E42A1F0CBBFF00DB9401 /* UIButton-Extension.swift */,
+				B9A5E4331F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A5E4341F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift in Sources */,
 				B9C5C37B1F0CB24C00878125 /* WBProfileTableViewController.swift in Sources */,
 				B9A5E42B1F0CBBFF00DB9401 /* UIButton-Extension.swift in Sources */,
 				B9C5C3751F0CB22800878125 /* WBHomeTableViewController.swift in Sources */,
