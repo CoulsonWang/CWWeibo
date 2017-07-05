@@ -10,7 +10,7 @@ import UIKit
 
 class WBMainViewController: UITabBarController {
     
-    fileprivate lazy var publishButton = UIButton(type: UIButtonType.custom)
+    fileprivate lazy var publishButton = UIButton(image: #imageLiteral(resourceName: "tabbar_compose_icon_add"), highlightedImage: #imageLiteral(resourceName: "tabbar_compose_icon_add_highlighted"), backgroundImage: #imageLiteral(resourceName: "tabbar_compose_button"), highlightedBackgroundImage: #imageLiteral(resourceName: "tabbar_compose_button_highlighted"))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,6 @@ extension WBMainViewController {
     fileprivate func setupPublishButton() -> Void {
         tabBar.addSubview(publishButton)
         
-        publishButton.setBackgroundImage(#imageLiteral(resourceName: "tabbar_compose_button"), for: .normal)
-        publishButton.setBackgroundImage(#imageLiteral(resourceName: "tabbar_compose_button_highlighted"), for: .highlighted)
-        publishButton.setImage(#imageLiteral(resourceName: "tabbar_compose_icon_add"), for: .normal)
-        publishButton.setImage(#imageLiteral(resourceName: "tabbar_compose_icon_add_highlighted"), for: .highlighted)
-        publishButton.sizeToFit()
         publishButton.center = CGPoint(x: tabBar.center.x, y: tabBar.bounds.size.height * 0.5)
     }
 }
