@@ -33,6 +33,7 @@
 		B9C5C3811F0CB30200878125 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3801F0CB30200878125 /* Message.storyboard */; };
 		B9C5C3831F0CB31100878125 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3821F0CB31100878125 /* Discover.storyboard */; };
 		B9C5C3851F0CB31800878125 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3841F0CB31800878125 /* Profile.storyboard */; };
+		B9F945A21F0D37F9001370FE /* CWNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945A11F0D37F9001370FE /* CWNetworkTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		B9C5C3801F0CB30200878125 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
 		B9C5C3821F0CB31100878125 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		B9C5C3841F0CB31800878125 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		B9F945A11F0D37F9001370FE /* CWNetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWNetworkTool.swift; sourceTree = "<group>"; };
 		CDED448FB0CD65A12E8B7432 /* Pods-CWWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 		B9A5E4281F0CBBC000DB9401 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				B9F9459E1F0D377B001370FE /* CWNetwork */,
 				B9A5E4291F0CBBD500DB9401 /* Category */,
 				B9A5E4351F0CEDD400DB9401 /* WBNavigationTitleButton.swift */,
 			);
@@ -234,6 +237,14 @@
 				B9C5C3701F0CB01200878125 /* Publish.storyboard */,
 			);
 			path = Publish;
+			sourceTree = "<group>";
+		};
+		B9F9459E1F0D377B001370FE /* CWNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				B9F945A11F0D37F9001370FE /* CWNetworkTool.swift */,
+			);
+			name = CWNetwork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +387,7 @@
 				B9C5C33F1F0BDD1500878125 /* AppDelegate.swift in Sources */,
 				B9A5E4411F0D236300DB9401 /* WBPopoverAnimator.swift in Sources */,
 				B9C5C3771F0CB23B00878125 /* WBMessageTableViewController.swift in Sources */,
+				B9F945A21F0D37F9001370FE /* CWNetworkTool.swift in Sources */,
 				B9A5E43F1F0D135F00DB9401 /* WBPresentationController.swift in Sources */,
 				B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */,
 				B9A5E4361F0CEDD400DB9401 /* WBNavigationTitleButton.swift in Sources */,
