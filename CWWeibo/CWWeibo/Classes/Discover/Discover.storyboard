@@ -12,7 +12,7 @@
         <!--发现-->
         <scene sceneID="89Y-ky-FNt">
             <objects>
-                <tableViewController id="OUN-Q2-6Py" sceneMemberID="viewController">
+                <tableViewController id="OUN-Q2-6Py" customClass="WBDiscoverTableViewController" customModule="CWWeibo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="GmP-q8-w5g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
