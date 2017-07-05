@@ -11,8 +11,10 @@ import UIKit
 class WBHomeTableViewController: WBBaseTableViewController {
 
     // MARK:- 懒加载
-    lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
-    fileprivate lazy var popoverAnimator = WBPopoverAnimator()
+    fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
+    fileprivate lazy var popoverAnimator : WBPopoverAnimator = WBPopoverAnimator {[weak self] (isPresented : Bool) in
+        self?.titleBtn.isSelected = isPresented
+    }
     // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +52,6 @@ extension WBHomeTableViewController {
 extension WBHomeTableViewController {
     
     @objc fileprivate func titleBtnClick(_ button : WBNavigationTitleButton) {
-        button.isSelected = !button.isSelected
         
         //弹出控制器
         let popVc = WBPopoverViewController()
