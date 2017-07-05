@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="c2G-6a-fk5"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="" id="c2G-6a-fk5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gpw-OJ-wVg" userLabel="First Responder" sceneMemberID="firstResponder"/>

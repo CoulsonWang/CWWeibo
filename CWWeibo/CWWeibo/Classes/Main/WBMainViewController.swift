@@ -9,38 +9,29 @@
 import UIKit
 
 class WBMainViewController: UITabBarController {
+    
+    fileprivate lazy var publishButton = UIButton(type: UIButtonType.custom)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupPublishButton()
     }
-
-//        guard let jsonPath = Bundle.main.path(forResource: "MainVCSettings", ofType: "json") else {
-//            return
-//        }
-//        guard let jsonData = NSData(contentsOfFile: jsonPath) else {
-//            return
-//        }
-//        
-//        guard let anyObject = try? JSONSerialization.jsonObject(with: jsonData as Data, options: .mutableContainers) else {
-//            return
-//        }
-//        
-//        guard let dictArray = anyObject as? [[String : Any]] else {
-//            return
-//        }
-//        
-//        for dict in dictArray {
-//            guard let vcName = dict["vcName"] as? String else {
-//                continue
-//            }
-//            guard let title = dict["title"] as? String else {
-//                continue
-//            }
-//            guard let imageName = dict["imageName"] as? String else {
-//                continue
-//            }
-//        }
     
 
+}
+
+extension WBMainViewController {
+    
+    /// 设置发布按钮
+    fileprivate func setupPublishButton() -> Void {
+        tabBar.addSubview(publishButton)
+        
+        publishButton.setBackgroundImage(#imageLiteral(resourceName: "tabbar_compose_button"), for: .normal)
+        publishButton.setBackgroundImage(#imageLiteral(resourceName: "tabbar_compose_button_highlighted"), for: .highlighted)
+        publishButton.setImage(#imageLiteral(resourceName: "tabbar_compose_icon_add"), for: .normal)
+        publishButton.setImage(#imageLiteral(resourceName: "tabbar_compose_icon_add_highlighted"), for: .highlighted)
+        publishButton.sizeToFit()
+        publishButton.center = CGPoint(x: tabBar.center.x, y: tabBar.bounds.size.height * 0.5)
+    }
 }
