@@ -8,17 +8,16 @@
 
 import UIKit
 
+protocol WBPopoverAnimatorDelegate {
+    func statusChange(isPresented : Bool) -> Void
+    
+}
+
 class WBPopoverAnimator: NSObject {
     // MARK:- 对外属性
     var isPresented : Bool = false
     var presentedFrame : CGRect = CGRect.zero
-    
-    var callBack : ((_ isPresented : Bool) -> ())?
-    
-    init(callBack : @escaping (_ isPresented : Bool) -> ()) {
-        self.callBack = callBack
-    }
-    
+    var delegate : WBPopoverAnimatorDelegate?
 }
 
 // MARK: - UIViewControllerTransitioningDelegate
@@ -33,14 +32,14 @@ extension WBPopoverAnimator : UIViewControllerTransitioningDelegate {
     //改变弹出动画
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresented = true
-        callBack!(isPresented)
+        self.delegate?.statusChange(isPresented: isPresented)
         return self
     }
     
     //改变消失动画
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresented = false
-        callBack!(isPresented)
+        self.delegate?.statusChange(isPresented: isPresented)
         return self
     }
 }
@@ -84,7 +83,5 @@ extension WBPopoverAnimator {
             dismissView.removeFromSuperview()
             transitionContext.completeTransition(true)
         }
-        
     }
-    
 }

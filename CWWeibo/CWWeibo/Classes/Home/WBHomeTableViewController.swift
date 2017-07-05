@@ -12,9 +12,7 @@ class WBHomeTableViewController: WBBaseTableViewController {
 
     // MARK:- 懒加载
     fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
-    fileprivate lazy var popoverAnimator : WBPopoverAnimator = WBPopoverAnimator {[weak self] (isPresented : Bool) in
-        self?.titleBtn.isSelected = isPresented
-    }
+    fileprivate lazy var popoverAnimator : WBPopoverAnimator = WBPopoverAnimator()
     // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +62,16 @@ extension WBHomeTableViewController {
         
         
         popoverAnimator.presentedFrame = CGRect(x: popoverX, y: popoverY, width: popverWidth, height: popoverHeight)
+        popoverAnimator.delegate = self
         popVc.transitioningDelegate = popoverAnimator
         
         present(popVc, animated: true, completion: nil)
+    }
+}
+
+extension WBHomeTableViewController : WBPopoverAnimatorDelegate {
+    func statusChange(isPresented: Bool) {
+        titleBtn.isSelected = isPresented
     }
 }
 
