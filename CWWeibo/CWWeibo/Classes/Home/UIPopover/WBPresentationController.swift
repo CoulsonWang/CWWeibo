@@ -10,15 +10,14 @@ import UIKit
 
 class WBPresentationController: UIPresentationController {
     
+    var presentedFrame : CGRect = CGRect.zero
+    
     fileprivate lazy var coverView = UIView()
     
     override func containerViewWillLayoutSubviews() {
         super.containerViewWillLayoutSubviews()
-        let width : CGFloat = 200
-        let height : CGFloat = 300.0
-        let x = (self.containerView!.bounds.size.width - width) * 0.5
         
-        presentedView?.frame = CGRect(x: x, y: 55, width: width, height: height)
+        presentedView?.frame = presentedFrame
         setupCoverView()
         
     }

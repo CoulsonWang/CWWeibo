@@ -16,6 +16,7 @@
 		B9A5E43C1F0CF2B200DB9401 /* WBPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E43A1F0CF2B200DB9401 /* WBPopoverViewController.swift */; };
 		B9A5E43D1F0CF2B200DB9401 /* WBPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A5E43B1F0CF2B200DB9401 /* WBPopoverViewController.xib */; };
 		B9A5E43F1F0D135F00DB9401 /* WBPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E43E1F0D135F00DB9401 /* WBPresentationController.swift */; };
+		B9A5E4411F0D236300DB9401 /* WBPopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E4401F0D236300DB9401 /* WBPopoverAnimator.swift */; };
 		B9C5C33F1F0BDD1500878125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5C33E1F0BDD1500878125 /* AppDelegate.swift */; };
 		B9C5C3461F0BDD1500878125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3451F0BDD1500878125 /* Assets.xcassets */; };
 		B9C5C3491F0BDD1500878125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3471F0BDD1500878125 /* LaunchScreen.storyboard */; };
@@ -43,6 +44,7 @@
 		B9A5E43A1F0CF2B200DB9401 /* WBPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPopoverViewController.swift; sourceTree = "<group>"; };
 		B9A5E43B1F0CF2B200DB9401 /* WBPopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBPopoverViewController.xib; sourceTree = "<group>"; };
 		B9A5E43E1F0D135F00DB9401 /* WBPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPresentationController.swift; sourceTree = "<group>"; };
+		B9A5E4401F0D236300DB9401 /* WBPopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPopoverAnimator.swift; sourceTree = "<group>"; };
 		B9C5C33B1F0BDD1500878125 /* CWWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C5C33E1F0BDD1500878125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9C5C3451F0BDD1500878125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				B9A5E43A1F0CF2B200DB9401 /* WBPopoverViewController.swift */,
 				B9A5E43B1F0CF2B200DB9401 /* WBPopoverViewController.xib */,
 				B9A5E43E1F0D135F00DB9401 /* WBPresentationController.swift */,
+				B9A5E4401F0D236300DB9401 /* WBPopoverAnimator.swift */,
 			);
 			path = UIPopover;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				B9A5E42B1F0CBBFF00DB9401 /* UIButton-Extension.swift in Sources */,
 				B9C5C3751F0CB22800878125 /* WBHomeTableViewController.swift in Sources */,
 				B9C5C33F1F0BDD1500878125 /* AppDelegate.swift in Sources */,
+				B9A5E4411F0D236300DB9401 /* WBPopoverAnimator.swift in Sources */,
 				B9C5C3771F0CB23B00878125 /* WBMessageTableViewController.swift in Sources */,
 				B9A5E43F1F0D135F00DB9401 /* WBPresentationController.swift in Sources */,
 				B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */,
