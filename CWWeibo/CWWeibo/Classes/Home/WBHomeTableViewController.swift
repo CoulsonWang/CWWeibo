@@ -9,7 +9,9 @@
 import UIKit
 
 class WBHomeTableViewController: WBBaseTableViewController {
-
+    // MARK:- 懒加载
+    fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
+    // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,5 +38,16 @@ extension WBHomeTableViewController {
         //设置右侧按钮
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "navigationbar_pop"), highlightedImage: #imageLiteral(resourceName: "navigationbar_pop_highlighted"))
         //设置中间
+        titleBtn.setTitle("Coulson", for: .normal)
+        titleBtn.addTarget(self, action: #selector(titleBtnClick(_:)), for: .touchUpInside)
+        navigationItem.titleView = titleBtn
+    }
+}
+
+// MARK:- 监听事件
+extension WBHomeTableViewController {
+    
+    @objc fileprivate func titleBtnClick(_ button : WBNavigationTitleButton) {
+        button.isSelected = !button.isSelected
     }
 }
