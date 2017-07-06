@@ -98,6 +98,7 @@ extension WBAuthorizeViewController {
             let account = WBUserAccount(dict: accountDict)
             
             self.loadUserInfo(account: account)
+            
         }
     }
     
@@ -109,13 +110,17 @@ extension WBAuthorizeViewController {
             guard error == nil else {
                 return
             }
-            
             guard let userInfoDict = result else {
                 return
             }
             //保存用户信息的昵称和头像
             account.screen_name = userInfoDict["screen_name"] as? String
             account.avatar_large = userInfoDict["avatar_large"] as? String
+            
+            //归档保存用户信息
+            var accountPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+            accountPath = (accountPath as NSString).appendingPathComponent("account.plist")
+            NSKeyedArchiver.archiveRootObject(account, toFile: accountPath)
         }
     }
 }

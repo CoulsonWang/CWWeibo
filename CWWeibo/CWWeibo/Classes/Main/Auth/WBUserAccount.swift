@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WBUserAccount: NSObject {
+class WBUserAccount: NSObject, NSCoding {
     
     var access_token : String?
     var expires_in : TimeInterval = 0 {
@@ -38,5 +38,21 @@ class WBUserAccount: NSObject {
     // 重写description，打印成员属性
     override var description: String {
         return dictionaryWithValues(forKeys: ["access_token","expires_in","uid"]).description
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        access_token = aDecoder.decodeObject(forKey: "access_token") as? String
+        uid = aDecoder.decodeObject(forKey: "uid") as? String
+        expires_date = aDecoder.decodeObject(forKey: "expires_date") as? Date
+        screen_name = aDecoder.decodeObject(forKey: "screen_name") as? String
+        avatar_large = aDecoder.decodeObject(forKey: "avatar_large") as? String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(access_token, forKey: "access_token")
+        aCoder.encode(uid, forKey: "uid")
+        aCoder.encode(expires_date, forKey: "expires_date")
+        aCoder.encode(screen_name, forKey: "screen_name")
+        aCoder.encode(avatar_large, forKey: "avatar_large")
     }
 }
