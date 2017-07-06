@@ -41,6 +41,9 @@
 		B9F945AD1F0E4462001370FE /* WBUserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945AC1F0E4462001370FE /* WBUserAccountViewModel.swift */; };
 		B9F945B11F0E4ADB001370FE /* WBWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945AF1F0E4ADB001370FE /* WBWelcomeViewController.swift */; };
 		B9F945B21F0E4ADB001370FE /* WBWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F945B01F0E4ADB001370FE /* WBWelcomeViewController.xib */; };
+		B9F945B51F0E78CF001370FE /* WBStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945B41F0E78CF001370FE /* WBStatusItem.swift */; };
+		B9F945B91F0E7D86001370FE /* WBStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945B71F0E7D86001370FE /* WBStatusTableViewCell.swift */; };
+		B9F945BA1F0E7D86001370FE /* WBStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F945B81F0E7D86001370FE /* WBStatusTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		B9F945AC1F0E4462001370FE /* WBUserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserAccountViewModel.swift; sourceTree = "<group>"; };
 		B9F945AF1F0E4ADB001370FE /* WBWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBWelcomeViewController.swift; sourceTree = "<group>"; };
 		B9F945B01F0E4ADB001370FE /* WBWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBWelcomeViewController.xib; sourceTree = "<group>"; };
+		B9F945B41F0E78CF001370FE /* WBStatusItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusItem.swift; sourceTree = "<group>"; };
+		B9F945B71F0E7D86001370FE /* WBStatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusTableViewCell.swift; sourceTree = "<group>"; };
+		B9F945B81F0E7D86001370FE /* WBStatusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusTableViewCell.xib; sourceTree = "<group>"; };
 		CDED448FB0CD65A12E8B7432 /* Pods-CWWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +217,8 @@
 		B9C5C3661F0CAD7D00878125 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B9F945B31F0E78BF001370FE /* Model */,
+				B9F945B61F0E7D5D001370FE /* View */,
 				B9A5E4371F0CF26100DB9401 /* UIPopover */,
 				B9C5C37E1F0CB2FA00878125 /* Home.storyboard */,
 				B9C5C3741F0CB22800878125 /* WBHomeTableViewController.swift */,
@@ -284,6 +292,23 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		B9F945B31F0E78BF001370FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9F945B41F0E78CF001370FE /* WBStatusItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9F945B61F0E7D5D001370FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9F945B71F0E7D86001370FE /* WBStatusTableViewCell.swift */,
+				B9F945B81F0E7D86001370FE /* WBStatusTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -348,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F945BA1F0E7D86001370FE /* WBStatusTableViewCell.xib in Resources */,
 				B9C5C3491F0BDD1500878125 /* LaunchScreen.storyboard in Resources */,
 				B9C5C3811F0CB30200878125 /* Message.storyboard in Resources */,
 				B9C5C3461F0BDD1500878125 /* Assets.xcassets in Resources */,
@@ -433,9 +459,11 @@
 				B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */,
 				B9F945A91F0E0706001370FE /* CWConst.swift in Sources */,
 				B9A5E4361F0CEDD400DB9401 /* WBNavigationTitleButton.swift in Sources */,
+				B9F945B91F0E7D86001370FE /* WBStatusTableViewCell.swift in Sources */,
 				B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */,
 				B9C5C3791F0CB24300878125 /* WBDiscoverTableViewController.swift in Sources */,
 				B9F945A61F0E03A0001370FE /* WBAuthorizeViewController.swift in Sources */,
+				B9F945B51F0E78CF001370FE /* WBStatusItem.swift in Sources */,
 				B9F945AD1F0E4462001370FE /* WBUserAccountViewModel.swift in Sources */,
 				B9C5C36B1F0CAD7D00878125 /* WBMainViewController.swift in Sources */,
 				B9A5E43C1F0CF2B200DB9401 /* WBPopoverViewController.swift in Sources */,

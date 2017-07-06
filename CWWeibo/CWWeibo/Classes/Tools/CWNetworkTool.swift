@@ -70,3 +70,22 @@ extension CWNetworkTool {
         }
     }
 }
+
+// MARK:- 请求主页数据
+extension CWNetworkTool {
+    func loadStatusesData(completion : @escaping (_ result : [[String : Any]]?, _ error : Error?)->()) {
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        
+        let parameters = ["access_token" : (WBUserAccountViewModel.sharedInstance.account?.access_token)!]
+        
+        request(.get, urlString: urlString, parameters: parameters) { (result, error) in
+            
+            guard let resultDict = result as? [String : Any] else {
+               completion(nil, error)
+                return
+            }
+            completion(resultDict["statuses"] as? [[String : Any]], error)
+        }
+        
+    }
+}

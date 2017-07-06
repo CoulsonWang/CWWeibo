@@ -29,7 +29,7 @@ class WBWelcomeViewController: UIViewController {
         super.viewDidAppear(animated)
         //添加动画
         iconBottomConstraint.constant = self.view.bounds.height * 0.7
-        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5, options: [], animations: {
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5, options: [], animations: {
             self.view.layoutIfNeeded()
         }) { (_) in
             UIApplication.shared.keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()

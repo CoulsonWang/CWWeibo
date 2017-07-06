@@ -9,10 +9,13 @@
 import UIKit
 
 class WBHomeTableViewController: WBBaseTableViewController {
-
+    
+    let cellID = "cellID"
+    
     // MARK:- 懒加载
     fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
     fileprivate lazy var popoverAnimator : WBPopoverAnimator = WBPopoverAnimator()
+    fileprivate lazy var statusesArray : [WBStatusItem] = [WBStatusItem]()
     // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,11 @@ class WBHomeTableViewController: WBBaseTableViewController {
             return
         }
         
+        tableView.register(WBStatusTableViewCell.self, forCellReuseIdentifier: cellID)
+        
         setupNavigationBar()
+        
+        loadStatuses()
     }
 
 
@@ -69,9 +76,46 @@ extension WBHomeTableViewController {
     }
 }
 
+// MARK:- WBPopoverAnimatorDelegate
 extension WBHomeTableViewController : WBPopoverAnimatorDelegate {
     func statusChange(isPresented: Bool) {
         titleBtn.isSelected = isPresented
     }
 }
 
+// MARK:- 请求数据
+extension WBHomeTableViewController {
+    fileprivate func loadStatuses() {
+        CWNetworkTool.sharedInstance.loadStatusesData { (result, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            guard let resultArray = result else {
+                return
+            }
+            
+            for statusDict in resultArray {
+                //字典转模型
+                let status = WBStatusItem(dict: statusDict)
+                self.statusesArray.append(status)
+            }
+            self.tableView.reloadData()
+        }
+    }
+}
+
+// MARK:- TableViewDataSource
+extension WBHomeTableViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statusesArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        
+        cell.textLabel?.text = statusesArray[indexPath.row].text
+        
+        return cell
+    }
+}
