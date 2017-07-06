@@ -12,22 +12,9 @@ class WBBaseTableViewController: UITableViewController {
     // MARK:- 懒加载
     lazy var visitorView : WBVisitorView = WBVisitorView.visitorView()
     
-    var isLogin : Bool = false
-    
+    var isLogin : Bool = WBUserAccountViewModel.sharedInstance.isLogin
     
     override func loadView() {
-        
-        //读取沙盒信息
-        var accountPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        accountPath = (accountPath as NSString).appendingPathComponent("account.plist")
-        let account  = NSKeyedUnarchiver.unarchiveObject(withFile: accountPath) as? WBUserAccount
-        //判断是否有沙盒文件
-        if let account = account {
-            if let expires_date = account.expires_date {
-                //如果没过期，则设置login状态为true
-                isLogin = (expires_date.compare(Date()) == ComparisonResult.orderedDescending)
-            }
-        }
         isLogin ? super.loadView() : setupVisitorView()
     }
 

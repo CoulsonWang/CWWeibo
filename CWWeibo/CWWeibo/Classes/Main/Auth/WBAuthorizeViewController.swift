@@ -118,9 +118,7 @@ extension WBAuthorizeViewController {
             account.avatar_large = userInfoDict["avatar_large"] as? String
             
             //归档保存用户信息
-            var accountPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-            accountPath = (accountPath as NSString).appendingPathComponent("account.plist")
-            NSKeyedArchiver.archiveRootObject(account, toFile: accountPath)
+            NSKeyedArchiver.archiveRootObject(account, toFile: WBUserAccountViewModel.sharedInstance.accountPath)
         }
     }
 }

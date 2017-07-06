@@ -38,7 +38,9 @@
 		B9F945A71F0E03A0001370FE /* WBAuthorizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F945A51F0E03A0001370FE /* WBAuthorizeViewController.xib */; };
 		B9F945A91F0E0706001370FE /* CWConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945A81F0E0706001370FE /* CWConst.swift */; };
 		B9F945AB1F0E15DC001370FE /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945AA1F0E15DC001370FE /* WBUserAccount.swift */; };
-		B9F945AD1F0E4462001370FE /* WBUserAccountTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945AC1F0E4462001370FE /* WBUserAccountTool.swift */; };
+		B9F945AD1F0E4462001370FE /* WBUserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945AC1F0E4462001370FE /* WBUserAccountViewModel.swift */; };
+		B9F945B11F0E4ADB001370FE /* WBWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945AF1F0E4ADB001370FE /* WBWelcomeViewController.swift */; };
+		B9F945B21F0E4ADB001370FE /* WBWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F945B01F0E4ADB001370FE /* WBWelcomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +78,9 @@
 		B9F945A51F0E03A0001370FE /* WBAuthorizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBAuthorizeViewController.xib; sourceTree = "<group>"; };
 		B9F945A81F0E0706001370FE /* CWConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWConst.swift; sourceTree = "<group>"; };
 		B9F945AA1F0E15DC001370FE /* WBUserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
-		B9F945AC1F0E4462001370FE /* WBUserAccountTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserAccountTool.swift; sourceTree = "<group>"; };
+		B9F945AC1F0E4462001370FE /* WBUserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserAccountViewModel.swift; sourceTree = "<group>"; };
+		B9F945AF1F0E4ADB001370FE /* WBWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBWelcomeViewController.swift; sourceTree = "<group>"; };
+		B9F945B01F0E4ADB001370FE /* WBWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBWelcomeViewController.xib; sourceTree = "<group>"; };
 		CDED448FB0CD65A12E8B7432 /* Pods-CWWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +221,7 @@
 		B9C5C3671F0CAD7D00878125 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B9F945AE1F0E4ABD001370FE /* Welcome */,
 				B9F945A31F0E0370001370FE /* Auth */,
 				B9A5E42C1F0CCB3A00DB9401 /* Visitor */,
 				B9C5C37C1F0CB2EE00878125 /* Main.storyboard */,
@@ -265,9 +270,18 @@
 				B9F945A41F0E03A0001370FE /* WBAuthorizeViewController.swift */,
 				B9F945A51F0E03A0001370FE /* WBAuthorizeViewController.xib */,
 				B9F945AA1F0E15DC001370FE /* WBUserAccount.swift */,
-				B9F945AC1F0E4462001370FE /* WBUserAccountTool.swift */,
+				B9F945AC1F0E4462001370FE /* WBUserAccountViewModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		B9F945AE1F0E4ABD001370FE /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				B9F945AF1F0E4ADB001370FE /* WBWelcomeViewController.swift */,
+				B9F945B01F0E4ADB001370FE /* WBWelcomeViewController.xib */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +356,7 @@
 				B9F945A71F0E03A0001370FE /* WBAuthorizeViewController.xib in Resources */,
 				B9A5E4321F0CCC9D00DB9401 /* WBVisitorView.xib in Resources */,
 				B9C5C3561F0C9B7C00878125 /* MainVCSettings.json in Resources */,
+				B9F945B21F0E4ADB001370FE /* WBWelcomeViewController.xib in Resources */,
 				B9C5C3721F0CB01200878125 /* Publish.storyboard in Resources */,
 				B9C5C3851F0CB31800878125 /* Profile.storyboard in Resources */,
 				B9C5C37D1F0CB2EE00878125 /* Main.storyboard in Resources */,
@@ -412,6 +427,7 @@
 				B9C5C33F1F0BDD1500878125 /* AppDelegate.swift in Sources */,
 				B9A5E4411F0D236300DB9401 /* WBPopoverAnimator.swift in Sources */,
 				B9C5C3771F0CB23B00878125 /* WBMessageTableViewController.swift in Sources */,
+				B9F945B11F0E4ADB001370FE /* WBWelcomeViewController.swift in Sources */,
 				B9F945A21F0D37F9001370FE /* CWNetworkTool.swift in Sources */,
 				B9A5E43F1F0D135F00DB9401 /* WBPresentationController.swift in Sources */,
 				B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */,
@@ -420,7 +436,7 @@
 				B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */,
 				B9C5C3791F0CB24300878125 /* WBDiscoverTableViewController.swift in Sources */,
 				B9F945A61F0E03A0001370FE /* WBAuthorizeViewController.swift in Sources */,
-				B9F945AD1F0E4462001370FE /* WBUserAccountTool.swift in Sources */,
+				B9F945AD1F0E4462001370FE /* WBUserAccountViewModel.swift in Sources */,
 				B9C5C36B1F0CAD7D00878125 /* WBMainViewController.swift in Sources */,
 				B9A5E43C1F0CF2B200DB9401 /* WBPopoverViewController.swift in Sources */,
 			);
