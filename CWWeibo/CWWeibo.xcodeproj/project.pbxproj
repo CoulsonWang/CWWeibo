@@ -44,6 +44,7 @@
 		B9F945B51F0E78CF001370FE /* WBStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945B41F0E78CF001370FE /* WBStatusItem.swift */; };
 		B9F945B91F0E7D86001370FE /* WBStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945B71F0E7D86001370FE /* WBStatusTableViewCell.swift */; };
 		B9F945BA1F0E7D86001370FE /* WBStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F945B81F0E7D86001370FE /* WBStatusTableViewCell.xib */; };
+		B9F945BE1F0E8C8D001370FE /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945BD1F0E8C8D001370FE /* Date-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		B9F945B41F0E78CF001370FE /* WBStatusItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusItem.swift; sourceTree = "<group>"; };
 		B9F945B71F0E7D86001370FE /* WBStatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusTableViewCell.swift; sourceTree = "<group>"; };
 		B9F945B81F0E7D86001370FE /* WBStatusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusTableViewCell.xib; sourceTree = "<group>"; };
+		B9F945BD1F0E8C8D001370FE /* Date-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
 		CDED448FB0CD65A12E8B7432 /* Pods-CWWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 			children = (
 				B9A5E42A1F0CBBFF00DB9401 /* UIButton-Extension.swift */,
 				B9A5E4331F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift */,
+				B9F945BD1F0E8C8D001370FE /* Date-Extension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				B9A5E42B1F0CBBFF00DB9401 /* UIButton-Extension.swift in Sources */,
 				B9F945AB1F0E15DC001370FE /* WBUserAccount.swift in Sources */,
 				B9C5C3751F0CB22800878125 /* WBHomeTableViewController.swift in Sources */,
+				B9F945BE1F0E8C8D001370FE /* Date-Extension.swift in Sources */,
 				B9C5C33F1F0BDD1500878125 /* AppDelegate.swift in Sources */,
 				B9A5E4411F0D236300DB9401 /* WBPopoverAnimator.swift in Sources */,
 				B9C5C3771F0CB23B00878125 /* WBMessageTableViewController.swift in Sources */,

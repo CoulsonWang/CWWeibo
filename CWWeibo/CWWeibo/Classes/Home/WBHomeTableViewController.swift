@@ -114,7 +114,7 @@ extension WBHomeTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
-        cell.textLabel?.text = statusesArray[indexPath.row].text
+        cell.textLabel?.text = statusesArray[indexPath.row].creatTimeText
         
         return cell
     }
