@@ -119,6 +119,12 @@ extension WBAuthorizeViewController {
             
             //归档保存用户信息
             NSKeyedArchiver.archiveRootObject(account, toFile: WBUserAccountViewModel.sharedInstance.accountPath)
+            
+            //切换控制器和界面
+            self.dismiss(animated: false, completion: {
+                UIApplication.shared.keyWindow?.rootViewController = WBWelcomeViewController()
+            })
+            
         }
     }
 }

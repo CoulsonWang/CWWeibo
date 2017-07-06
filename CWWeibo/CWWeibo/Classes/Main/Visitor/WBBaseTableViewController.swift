@@ -13,6 +13,8 @@ class WBBaseTableViewController: UITableViewController {
     lazy var visitorView : WBVisitorView = WBVisitorView.visitorView()
     
     var isLogin : Bool = WBUserAccountViewModel.sharedInstance.isLogin
+
+    
     
     override func loadView() {
         isLogin ? super.loadView() : setupVisitorView()

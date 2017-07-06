@@ -26,11 +26,9 @@ class WBUserAccountViewModel {
         return expires_date.compare(Date()) == ComparisonResult.orderedDescending
     }
     
-    
-    var account : WBUserAccount?
-
-    init() {
-        account = NSKeyedUnarchiver.unarchiveObject(withFile: accountPath) as? WBUserAccount
+    var account : WBUserAccount? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: accountPath) as? WBUserAccount
     }
+
     
 }
