@@ -39,7 +39,9 @@ extension WBAuthorizeViewController {
     }
     
     @objc fileprivate func fillBtnClick() {
+        let jsCode = "document.getElementById('userId').value='13802786785';document.getElementById('passwd').value='wyy24680000';"
         
+        webView.stringByEvaluatingJavaScript(from: jsCode)
     }
     
     fileprivate func loadLoginPage() {
@@ -63,6 +65,56 @@ extension WBAuthorizeViewController : UIWebViewDelegate {
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        SVProgressHUD.showError(withStatus: "加载失败!")
+        SVProgressHUD.dismiss()
+    }
+    
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        guard let url = request.url else {
+            return true
+        }
+        let str = url.absoluteString
+        
+        guard str.contains("code=") else {
+            return true
+        }
+        
+        let codeStr = str.components(separatedBy: "code=").last!
+        loadAccessToken(code: codeStr)
+        
+        return false
+    }
+}
+
+extension WBAuthorizeViewController {
+    fileprivate func loadAccessToken(code : String) -> Void {
+        CWNetworkTool.sharedInstance.loadAccessToken(code) { (result, error) in
+            guard error == nil else {
+                return
+            }
+            guard let accountDict = result else {
+                return
+            }
+            //保存请求结果
+            let account = WBUserAccount(dict: accountDict)
+            
+            self.loadUserInfo(account: account)
+        }
+    }
+    
+    private func loadUserInfo(account : WBUserAccount) -> Void {
+        guard let access_token = account.access_token else { return }
+        guard let uid = account.uid else { return  }
+        CWNetworkTool.sharedInstance.loadUserInfo(access_token: access_token, uid: uid) { (result, error) in
+            guard error == nil else {
+                return
+            }
+            
+            guard let userInfoDict = result else {
+                return
+            }
+            
+            account.screen_name = userInfoDict["screen_name"] as? String
+            account.avatar_large = userInfoDict["avatar_large"] as? String
+        }
     }
 }
