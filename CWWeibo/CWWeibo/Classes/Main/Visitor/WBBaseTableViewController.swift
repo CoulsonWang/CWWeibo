@@ -51,6 +51,12 @@ extension WBBaseTableViewController {
     }
     
     @objc fileprivate func loginBtnClick() -> Void {
-        CWLog()
+        let authVC = WBAuthorizeViewController()
+        
+        let authNavVC = UINavigationController(rootViewController: authVC)
+        
+        present(authNavVC, animated: true, completion: nil)
+        
+        
     }
 }

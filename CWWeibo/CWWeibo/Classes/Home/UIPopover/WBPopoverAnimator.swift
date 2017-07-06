@@ -50,6 +50,7 @@ extension WBPopoverAnimator : UIViewControllerAnimatedTransitioning {
         return 0.25
     }
     
+    //配置转场动画
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         isPresented ? animationForPresentedView(transitionContext: transitionContext) : animationForDismissView(transitionContext: transitionContext)
     }

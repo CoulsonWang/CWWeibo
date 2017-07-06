@@ -34,6 +34,9 @@
 		B9C5C3831F0CB31100878125 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3821F0CB31100878125 /* Discover.storyboard */; };
 		B9C5C3851F0CB31800878125 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C3841F0CB31800878125 /* Profile.storyboard */; };
 		B9F945A21F0D37F9001370FE /* CWNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945A11F0D37F9001370FE /* CWNetworkTool.swift */; };
+		B9F945A61F0E03A0001370FE /* WBAuthorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945A41F0E03A0001370FE /* WBAuthorizeViewController.swift */; };
+		B9F945A71F0E03A0001370FE /* WBAuthorizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F945A51F0E03A0001370FE /* WBAuthorizeViewController.xib */; };
+		B9F945A91F0E0706001370FE /* CWConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945A81F0E0706001370FE /* CWConst.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +70,9 @@
 		B9C5C3821F0CB31100878125 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		B9C5C3841F0CB31800878125 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B9F945A11F0D37F9001370FE /* CWNetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWNetworkTool.swift; sourceTree = "<group>"; };
+		B9F945A41F0E03A0001370FE /* WBAuthorizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBAuthorizeViewController.swift; sourceTree = "<group>"; };
+		B9F945A51F0E03A0001370FE /* WBAuthorizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBAuthorizeViewController.xib; sourceTree = "<group>"; };
+		B9F945A81F0E0706001370FE /* CWConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWConst.swift; sourceTree = "<group>"; };
 		CDED448FB0CD65A12E8B7432 /* Pods-CWWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +111,7 @@
 				B9F9459E1F0D377B001370FE /* CWNetwork */,
 				B9A5E4291F0CBBD500DB9401 /* Category */,
 				B9A5E4351F0CEDD400DB9401 /* WBNavigationTitleButton.swift */,
+				B9F945A81F0E0706001370FE /* CWConst.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 		B9C5C3671F0CAD7D00878125 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B9F945A31F0E0370001370FE /* Auth */,
 				B9A5E42C1F0CCB3A00DB9401 /* Visitor */,
 				B9C5C37C1F0CB2EE00878125 /* Main.storyboard */,
 				B9C5C3681F0CAD7D00878125 /* WBMainViewController.swift */,
@@ -245,6 +253,15 @@
 				B9F945A11F0D37F9001370FE /* CWNetworkTool.swift */,
 			);
 			name = CWNetwork;
+			sourceTree = "<group>";
+		};
+		B9F945A31F0E0370001370FE /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B9F945A41F0E03A0001370FE /* WBAuthorizeViewController.swift */,
+				B9F945A51F0E03A0001370FE /* WBAuthorizeViewController.xib */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +333,7 @@
 				B9C5C3461F0BDD1500878125 /* Assets.xcassets in Resources */,
 				B9C5C37F1F0CB2FA00878125 /* Home.storyboard in Resources */,
 				B9A5E43D1F0CF2B200DB9401 /* WBPopoverViewController.xib in Resources */,
+				B9F945A71F0E03A0001370FE /* WBAuthorizeViewController.xib in Resources */,
 				B9A5E4321F0CCC9D00DB9401 /* WBVisitorView.xib in Resources */,
 				B9C5C3561F0C9B7C00878125 /* MainVCSettings.json in Resources */,
 				B9C5C3721F0CB01200878125 /* Publish.storyboard in Resources */,
@@ -390,9 +408,11 @@
 				B9F945A21F0D37F9001370FE /* CWNetworkTool.swift in Sources */,
 				B9A5E43F1F0D135F00DB9401 /* WBPresentationController.swift in Sources */,
 				B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */,
+				B9F945A91F0E0706001370FE /* CWConst.swift in Sources */,
 				B9A5E4361F0CEDD400DB9401 /* WBNavigationTitleButton.swift in Sources */,
 				B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */,
 				B9C5C3791F0CB24300878125 /* WBDiscoverTableViewController.swift in Sources */,
+				B9F945A61F0E03A0001370FE /* WBAuthorizeViewController.swift in Sources */,
 				B9C5C36B1F0CAD7D00878125 /* WBMainViewController.swift in Sources */,
 				B9A5E43C1F0CF2B200DB9401 /* WBPopoverViewController.swift in Sources */,
 			);
