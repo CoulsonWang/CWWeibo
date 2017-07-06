@@ -13,6 +13,7 @@ class WBUserAccount: NSObject {
     var access_token : String?
     var expires_in : TimeInterval = 0 {
         didSet {
+            //将剩余时限转化为具体时间保存起来
             expires_date = Date(timeIntervalSinceNow: expires_in)
         }
     }
@@ -34,6 +35,7 @@ class WBUserAccount: NSObject {
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
     
+    // 重写description，打印成员属性
     override var description: String {
         return dictionaryWithValues(forKeys: ["access_token","expires_in","uid"]).description
     }

@@ -24,7 +24,7 @@ class WBNavigationTitleButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        //交换图片和文本的位置
         titleLabel?.frame.origin.x = 0
         imageView?.frame.origin.x = (titleLabel?.frame.size.width)! + 6
     }

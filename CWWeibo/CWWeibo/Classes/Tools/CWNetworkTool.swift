@@ -27,10 +27,11 @@ class CWNetworkTool: AFHTTPSessionManager {
 // MARK:- 封装请求
 extension CWNetworkTool {
     func request(_ requestType : RequestType, urlString : String, parameters : [String : Any], completion : @escaping (Any?, Error?) -> ()) {
-        
+        //成功回调
         let successCallBack = { (task : URLSessionDataTask, result : Any) in
             completion(result, nil)
         }
+        //失败回调
         let failureCallBack = { (task : URLSessionDataTask?, error : Error) in
             completion(nil, error)
         }
@@ -45,7 +46,7 @@ extension CWNetworkTool {
 
 // MARK:- 封装AccessToken请求
 extension CWNetworkTool {
-    func loadAccessToken(_ code : String, completion : @escaping (_ result : [String : Any]?, _ error : Error?)->()) -> Void {
+    func loadAccessToken(code : String, completion : @escaping (_ result : [String : Any]?, _ error : Error?)->()) -> Void {
         let urlString = "https://api.weibo.com/oauth2/access_token"
         
         let parameters = ["client_id" : app_key, "client_secret" : app_secret, "grant_type" : grant_type, "code" : code, "redirect_uri" : redirect_uri]

@@ -23,7 +23,7 @@ class WBAuthorizeViewController: UIViewController {
         loadLoginPage()
     }
 }
-
+// MARK:- 初始化界面
 extension WBAuthorizeViewController {
     func setupNavigationBar() -> Void {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: .plain, target: self, action: #selector(closeBtnClick))
@@ -68,16 +68,15 @@ extension WBAuthorizeViewController : UIWebViewDelegate {
         SVProgressHUD.dismiss()
     }
     
+    //确定是否加载界面。如果是登陆成功后的回调，则不加载
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        guard let url = request.url else {
-            return true
-        }
+        guard let url = request.url else { return true }
         let str = url.absoluteString
-        
         guard str.contains("code=") else {
             return true
         }
         
+        //获取AccessToken所需的Code
         let codeStr = str.components(separatedBy: "code=").last!
         loadAccessToken(code: codeStr)
         
@@ -86,8 +85,9 @@ extension WBAuthorizeViewController : UIWebViewDelegate {
 }
 
 extension WBAuthorizeViewController {
+    //发送请求获取AccessToken
     fileprivate func loadAccessToken(code : String) -> Void {
-        CWNetworkTool.sharedInstance.loadAccessToken(code) { (result, error) in
+        CWNetworkTool.sharedInstance.loadAccessToken(code: code) { (result, error) in
             guard error == nil else {
                 return
             }
@@ -101,6 +101,7 @@ extension WBAuthorizeViewController {
         }
     }
     
+    //加载用户信息
     private func loadUserInfo(account : WBUserAccount) -> Void {
         guard let access_token = account.access_token else { return }
         guard let uid = account.uid else { return  }
@@ -112,7 +113,7 @@ extension WBAuthorizeViewController {
             guard let userInfoDict = result else {
                 return
             }
-            
+            //保存用户信息的昵称和头像
             account.screen_name = userInfoDict["screen_name"] as? String
             account.avatar_large = userInfoDict["avatar_large"] as? String
         }
