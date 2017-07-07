@@ -48,6 +48,7 @@
 		B9F945C01F0F45AC001370FE /* WBUserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945BF1F0F45AC001370FE /* WBUserItem.swift */; };
 		B9F945C21F0F50E3001370FE /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945C11F0F50E3001370FE /* WBStatusViewModel.swift */; };
 		B9F945C41F0F5666001370FE /* UIImageView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945C31F0F5666001370FE /* UIImageView-Extension.swift */; };
+		B9F945C61F0F889B001370FE /* WBStatusPictureCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945C51F0F889B001370FE /* WBStatusPictureCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		B9F945BF1F0F45AC001370FE /* WBUserItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserItem.swift; sourceTree = "<group>"; };
 		B9F945C11F0F50E3001370FE /* WBStatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
 		B9F945C31F0F5666001370FE /* UIImageView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView-Extension.swift"; sourceTree = "<group>"; };
+		B9F945C51F0F889B001370FE /* WBStatusPictureCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusPictureCollectionView.swift; sourceTree = "<group>"; };
 		CDED448FB0CD65A12E8B7432 /* Pods-CWWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -317,6 +319,7 @@
 			children = (
 				B9F945B71F0E7D86001370FE /* WBStatusTableViewCell.swift */,
 				B9F945B81F0E7D86001370FE /* WBStatusTableViewCell.xib */,
+				B9F945C51F0F889B001370FE /* WBStatusPictureCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				B9F945B91F0E7D86001370FE /* WBStatusTableViewCell.swift in Sources */,
 				B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */,
 				B9C5C3791F0CB24300878125 /* WBDiscoverTableViewController.swift in Sources */,
+				B9F945C61F0F889B001370FE /* WBStatusPictureCollectionView.swift in Sources */,
 				B9F945A61F0E03A0001370FE /* WBAuthorizeViewController.swift in Sources */,
 				B9F945B51F0E78CF001370FE /* WBStatusItem.swift in Sources */,
 				B9F945AD1F0E4462001370FE /* WBUserAccountViewModel.swift in Sources */,

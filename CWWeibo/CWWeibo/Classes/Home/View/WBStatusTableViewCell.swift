@@ -28,6 +28,7 @@ class WBStatusTableViewCell: UITableViewCell {
     @IBOutlet weak var vipLevelView: UIImageView!
     @IBOutlet weak var contentTextLabel: UILabel!
     
+    @IBOutlet weak var pictureCollectionView: WBStatusPictureCollectionView!
     
     // MARK:- 模型属性
     var viewModel : WBStatusViewModel? {
@@ -47,6 +48,7 @@ class WBStatusTableViewCell: UITableViewCell {
             let pictureHeight = calculatePictureViewHeight(count: viewModel.pictureURLs.count)
             pictureViewHeightConstraint.constant = pictureHeight
             pictureViewBottomSpaceConstraint.constant = (viewModel.pictureURLs.count == 0) ? 0 : marginOfViews
+            pictureCollectionView.pictureURLs = viewModel.pictureURLs
         }
     }
     
@@ -55,19 +57,52 @@ class WBStatusTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         profileImageView.makeCircle()
+        
+        setupPictureView()
     }
+
     
 }
 
 extension WBStatusTableViewCell {
+    func setupPictureView() {
+        let layout = pictureCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumInteritemSpacing = marginBetweenPictures
+        layout.minimumLineSpacing = marginBetweenPictures
+        let imageWH = calculateSizeOfEachPicture()
+        layout.itemSize = CGSize(width: imageWH, height: imageWH)
+    }
+    
+    func updatePictureViewLayout() {
+        let layout = pictureCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        guard let count = viewModel?.pictureURLs.count else {
+            return
+        }
+        let imageWH = calculateSizeOfEachPicture(count: count)
+        layout.itemSize = CGSize(width: imageWH, height: imageWH)
+    }
+}
+
+// MARK:- 计算相关
+extension WBStatusTableViewCell {
+    //计算总高度
     fileprivate func calculatePictureViewHeight(count : Int) -> CGFloat {
+        let (colum, row) = calculateColumAndRow(count: count)
+        if colum == 0 { return 0 }
+        let imageWH = calculateSizeOfEachPicture()
+        return (imageWH * CGFloat(row) + CGFloat(row - 1) * marginBetweenPictures)
+    }
+    
+    
+    //计算行数列数
+    func calculateColumAndRow(count : Int) -> (colum : Int, row : Int) {
         var colum = 0
         var row = 0
         
         //计算列数
         switch count {
         case 0:
-            return 0
+            return (0,0)
         case 1:
             colum = 1
         case 2,4:
@@ -77,10 +112,17 @@ extension WBStatusTableViewCell {
         }
         //计算行数
         row = (count - 1) / colum + 1
-        //计算每张图片的宽高
-        let imageWH = (UIScreen.main.bounds.width - 2 * marginOfedge - CGFloat(colum - 1) * marginBetweenPictures) / CGFloat(colum)
-        
-        return (imageWH * CGFloat(row) + CGFloat(row - 1) * marginBetweenPictures)
+        return (colum, row)
     }
-
+    //计算单张图片的宽高
+    fileprivate func calculateSizeOfEachPicture(count : Int) -> CGFloat {
+        let (colum, row) = calculateColumAndRow(count: count)
+        return (colum == 0) ? 0 : calculateSizeOfEachPicture(colum: colum, row: row)
+    }
+    fileprivate func calculateSizeOfEachPicture() -> CGFloat {
+        return calculateSizeOfEachPicture(colum: 3, row: 1)
+    }
+    private func calculateSizeOfEachPicture(colum : Int, row : Int) -> CGFloat {
+        return (UIScreen.main.bounds.width - 2 * marginOfedge - CGFloat(colum - 1) * marginBetweenPictures) / CGFloat(colum)
+    }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class WBHomeTableViewController: WBBaseTableViewController {
     
@@ -103,6 +104,23 @@ extension WBHomeTableViewController {
                 let viewModel = WBStatusViewModel(status: status)
                 self.statusViewModels.append(viewModel)
             }
+            
+            self.cacheImages(viewModels: self.statusViewModels)
+            
+        }
+    }
+    
+    private func cacheImages(viewModels : [WBStatusViewModel]) {
+        let group = DispatchGroup.init()
+        for viewModel in viewModels {
+            for picURL in viewModel.pictureURLs {
+                group.enter()
+                SDWebImageManager.shared().imageDownloader?.downloadImage(with: picURL, options: [], progress: nil, completed: { (_, _, _, _) in
+                    group.leave()
+                })
+            }
+        }
+        group.notify(queue: .main) { 
             self.tableView.reloadData()
         }
     }
@@ -116,7 +134,6 @@ extension WBHomeTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! WBStatusTableViewCell
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellID)
         
         cell.viewModel = statusViewModels[indexPath.row]
         

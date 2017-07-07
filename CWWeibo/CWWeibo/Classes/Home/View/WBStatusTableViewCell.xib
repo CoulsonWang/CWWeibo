@@ -55,9 +55,9 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="L5B-8C-GsZ">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="L5B-8C-GsZ" customClass="WBStatusPictureCollectionView" customModule="CWWeibo" customModuleProvider="target">
                         <rect key="frame" x="8" y="176" width="430" height="100"/>
-                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="5EU-Cc-HZz"/>
                         </constraints>
@@ -170,6 +170,7 @@
             <connections>
                 <outlet property="contentTextLabel" destination="N68-vp-OBD" id="mRN-bG-tWr"/>
                 <outlet property="nameLabel" destination="DDK-S9-uyG" id="RL4-A2-J83"/>
+                <outlet property="pictureCollectionView" destination="L5B-8C-GsZ" id="SVB-e4-eEs"/>
                 <outlet property="pictureViewBottomSpaceConstraint" destination="Mji-c0-unL" id="pRF-sD-BHv"/>
                 <outlet property="pictureViewHeightConstraint" destination="5EU-Cc-HZz" id="d5p-Di-IIH"/>
                 <outlet property="profileImageView" destination="4JY-Pr-WcE" id="voO-Or-sMV"/>
