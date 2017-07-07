@@ -21,8 +21,7 @@ class WBWelcomeViewController: UIViewController {
         iconView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "avatar_default_big"))
         
         //设置头像圆角
-        iconView.layer.cornerRadius = iconView.bounds.width * 0.5
-        iconView.layer.masksToBounds = true
+        iconView.makeCircle()
     }
     
     override func viewDidAppear(_ animated: Bool) {

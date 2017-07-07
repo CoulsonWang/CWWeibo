@@ -47,6 +47,7 @@
 		B9F945BE1F0E8C8D001370FE /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945BD1F0E8C8D001370FE /* Date-Extension.swift */; };
 		B9F945C01F0F45AC001370FE /* WBUserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945BF1F0F45AC001370FE /* WBUserItem.swift */; };
 		B9F945C21F0F50E3001370FE /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945C11F0F50E3001370FE /* WBStatusViewModel.swift */; };
+		B9F945C41F0F5666001370FE /* UIImageView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945C31F0F5666001370FE /* UIImageView-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		B9F945BD1F0E8C8D001370FE /* Date-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
 		B9F945BF1F0F45AC001370FE /* WBUserItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserItem.swift; sourceTree = "<group>"; };
 		B9F945C11F0F50E3001370FE /* WBStatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
+		B9F945C31F0F5666001370FE /* UIImageView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView-Extension.swift"; sourceTree = "<group>"; };
 		CDED448FB0CD65A12E8B7432 /* Pods-CWWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 				B9A5E42A1F0CBBFF00DB9401 /* UIButton-Extension.swift */,
 				B9A5E4331F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift */,
 				B9F945BD1F0E8C8D001370FE /* Date-Extension.swift */,
+				B9F945C31F0F5666001370FE /* UIImageView-Extension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F945C41F0F5666001370FE /* UIImageView-Extension.swift in Sources */,
 				B9A5E4341F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift in Sources */,
 				B9C5C37B1F0CB24C00878125 /* WBProfileTableViewController.swift in Sources */,
 				B9F945C01F0F45AC001370FE /* WBUserItem.swift in Sources */,
