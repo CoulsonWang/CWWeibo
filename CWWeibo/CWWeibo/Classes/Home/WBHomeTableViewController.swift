@@ -10,7 +10,7 @@ import UIKit
 
 class WBHomeTableViewController: WBBaseTableViewController {
     
-    let cellID = "cellID"
+    let cellID = "WBStatusTableViewCell"
     
     // MARK:- 懒加载
     fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
@@ -21,13 +21,12 @@ class WBHomeTableViewController: WBBaseTableViewController {
         super.viewDidLoad()
 
         visitorView.addRotationAnim()
-        isLogin = true
         
         guard isLogin else {
             return
         }
         
-        tableView.register(WBStatusTableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(UINib.init(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
         
         setupNavigationBar()
         
@@ -113,9 +112,10 @@ extension WBHomeTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! WBStatusTableViewCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: cellID)
         
-        cell.textLabel?.text = statusViewModels[indexPath.row].creatTimeText
+        cell.viewModel = statusViewModels[indexPath.row]
         
         return cell
     }

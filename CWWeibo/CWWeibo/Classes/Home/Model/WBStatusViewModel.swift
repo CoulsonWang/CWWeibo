@@ -17,6 +17,8 @@ class WBStatusViewModel: NSObject {
     var creatTimeText : String?
     var verifiedImage : UIImage?
     var vipLevelImage : UIImage?
+    var profileImageURL : URL?
+    
     
     init(status : WBStatusItem) {
         super.init()
@@ -49,6 +51,13 @@ class WBStatusViewModel: NSObject {
         if mbrank > 0 && mbrank <= 6 {
             vipLevelImage = UIImage(named: "common_icon_membership_level\(mbrank)")
         }
-
+        
+        //处理头像URL
+        if let profileURLString = status.user?.profile_image_url {
+            profileImageURL = URL(string: profileURLString)
+        } else {
+            profileImageURL = nil
+        }
+        
     }
 }
