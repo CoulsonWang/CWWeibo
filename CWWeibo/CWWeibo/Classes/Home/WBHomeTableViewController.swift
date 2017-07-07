@@ -115,7 +115,7 @@ extension WBHomeTableViewController {
         for viewModel in viewModels {
             for picURL in viewModel.pictureURLs {
                 group.enter()
-                SDWebImageManager.shared().imageDownloader?.downloadImage(with: picURL, options: [], progress: nil, completed: { (_, _, _, _) in
+                SDWebImageManager.shared().imageDownloader?.downloadImage(with: picURL, options: .useNSURLCache, progress: nil, completed: { (_, _, _, _) in
                     group.leave()
                 })
             }

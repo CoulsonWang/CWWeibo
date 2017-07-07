@@ -49,6 +49,8 @@
 		B9F945C21F0F50E3001370FE /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945C11F0F50E3001370FE /* WBStatusViewModel.swift */; };
 		B9F945C41F0F5666001370FE /* UIImageView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945C31F0F5666001370FE /* UIImageView-Extension.swift */; };
 		B9F945C61F0F889B001370FE /* WBStatusPictureCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945C51F0F889B001370FE /* WBStatusPictureCollectionView.swift */; };
+		B9F945C91F0FC813001370FE /* WBPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945C71F0FC813001370FE /* WBPictureCollectionViewCell.swift */; };
+		B9F945CA1F0FC813001370FE /* WBPictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F945C81F0FC813001370FE /* WBPictureCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,8 @@
 		B9F945C11F0F50E3001370FE /* WBStatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
 		B9F945C31F0F5666001370FE /* UIImageView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView-Extension.swift"; sourceTree = "<group>"; };
 		B9F945C51F0F889B001370FE /* WBStatusPictureCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusPictureCollectionView.swift; sourceTree = "<group>"; };
+		B9F945C71F0FC813001370FE /* WBPictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		B9F945C81F0FC813001370FE /* WBPictureCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBPictureCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDED448FB0CD65A12E8B7432 /* Pods-CWWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -320,6 +324,8 @@
 				B9F945B71F0E7D86001370FE /* WBStatusTableViewCell.swift */,
 				B9F945B81F0E7D86001370FE /* WBStatusTableViewCell.xib */,
 				B9F945C51F0F889B001370FE /* WBStatusPictureCollectionView.swift */,
+				B9F945C71F0FC813001370FE /* WBPictureCollectionViewCell.swift */,
+				B9F945C81F0FC813001370FE /* WBPictureCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F945BA1F0E7D86001370FE /* WBStatusTableViewCell.xib in Resources */,
+				B9F945CA1F0FC813001370FE /* WBPictureCollectionViewCell.xib in Resources */,
 				B9C5C3491F0BDD1500878125 /* LaunchScreen.storyboard in Resources */,
 				B9C5C3811F0CB30200878125 /* Message.storyboard in Resources */,
 				B9C5C3461F0BDD1500878125 /* Assets.xcassets in Resources */,
@@ -484,6 +491,7 @@
 				B9F945A61F0E03A0001370FE /* WBAuthorizeViewController.swift in Sources */,
 				B9F945B51F0E78CF001370FE /* WBStatusItem.swift in Sources */,
 				B9F945AD1F0E4462001370FE /* WBUserAccountViewModel.swift in Sources */,
+				B9F945C91F0FC813001370FE /* WBPictureCollectionViewCell.swift in Sources */,
 				B9C5C36B1F0CAD7D00878125 /* WBMainViewController.swift in Sources */,
 				B9A5E43C1F0CF2B200DB9401 /* WBPopoverViewController.swift in Sources */,
 				B9F945C21F0F50E3001370FE /* WBStatusViewModel.swift in Sources */,

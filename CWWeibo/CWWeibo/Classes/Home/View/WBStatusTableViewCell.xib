@@ -60,6 +60,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="5EU-Cc-HZz"/>
+                            <constraint firstAttribute="width" constant="430" id="SHt-mM-tr7"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Qk-Ql-Ooe">
                             <size key="itemSize" width="50" height="50"/>
@@ -151,7 +152,6 @@
                     <constraint firstAttribute="trailingMargin" secondItem="N68-vp-OBD" secondAttribute="trailing" id="D7T-hc-3db"/>
                     <constraint firstItem="S9A-Xn-dZT" firstAttribute="baseline" secondItem="hM2-JX-0xe" secondAttribute="baseline" id="DFh-5x-7sE"/>
                     <constraint firstItem="hM2-JX-0xe" firstAttribute="leading" secondItem="4JY-Pr-WcE" secondAttribute="trailing" constant="8" id="DfY-VO-tXW"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="L5B-8C-GsZ" secondAttribute="trailing" id="GiY-Ng-rXa"/>
                     <constraint firstItem="hM2-JX-0xe" firstAttribute="bottom" secondItem="4JY-Pr-WcE" secondAttribute="bottom" id="Hli-If-Wcl"/>
                     <constraint firstItem="hbi-Cy-p1g" firstAttribute="top" secondItem="L5B-8C-GsZ" secondAttribute="bottom" constant="12" id="Mji-c0-unL"/>
                     <constraint firstItem="4JY-Pr-WcE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="WBi-iR-Jze"/>
@@ -173,6 +173,7 @@
                 <outlet property="pictureCollectionView" destination="L5B-8C-GsZ" id="SVB-e4-eEs"/>
                 <outlet property="pictureViewBottomSpaceConstraint" destination="Mji-c0-unL" id="pRF-sD-BHv"/>
                 <outlet property="pictureViewHeightConstraint" destination="5EU-Cc-HZz" id="d5p-Di-IIH"/>
+                <outlet property="pictureViewWidthConstraint" destination="SHt-mM-tr7" id="s7m-Zj-QOd"/>
                 <outlet property="profileImageView" destination="4JY-Pr-WcE" id="voO-Or-sMV"/>
                 <outlet property="sourceLabel" destination="S9A-Xn-dZT" id="KEf-Eh-Wpj"/>
                 <outlet property="timeLabel" destination="hM2-JX-0xe" id="c2q-Ki-4Ch"/>
