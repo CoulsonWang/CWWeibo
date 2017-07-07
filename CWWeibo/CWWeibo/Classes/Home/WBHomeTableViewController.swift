@@ -15,7 +15,7 @@ class WBHomeTableViewController: WBBaseTableViewController {
     // MARK:- 懒加载
     fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
     fileprivate lazy var popoverAnimator : WBPopoverAnimator = WBPopoverAnimator()
-    fileprivate lazy var statusesArray : [WBStatusItem] = [WBStatusItem]()
+    fileprivate lazy var statusViewModels : [WBStatusViewModel] = [WBStatusViewModel]()
     // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +98,8 @@ extension WBHomeTableViewController {
             for statusDict in resultArray {
                 //字典转模型
                 let status = WBStatusItem(dict: statusDict)
-                self.statusesArray.append(status)
+                let viewModel = WBStatusViewModel(status: status)
+                self.statusViewModels.append(viewModel)
             }
             self.tableView.reloadData()
         }
@@ -108,13 +109,13 @@ extension WBHomeTableViewController {
 // MARK:- TableViewDataSource
 extension WBHomeTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statusesArray.count
+        return statusViewModels.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
-        cell.textLabel?.text = statusesArray[indexPath.row].creatTimeText
+        cell.textLabel?.text = statusViewModels[indexPath.row].creatTimeText
         
         return cell
     }
