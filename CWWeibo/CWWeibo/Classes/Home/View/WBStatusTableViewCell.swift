@@ -12,13 +12,16 @@ import SDWebImage
 private let marginBetweenPictures : CGFloat = 10
 private let marginOfedge : CGFloat = 8
 private let marginOfViews : CGFloat = 12
+private let marginOfRetweetBottom : CGFloat = 15
 
 
 class WBStatusTableViewCell: UITableViewCell {
     // MARK:- 约束
+        @IBOutlet weak var pictureViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var pictureViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var pictureViewBottomSpaceConstraint: NSLayoutConstraint!
-    @IBOutlet weak var pictureViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var retweetContextBottomSpaceConstraint: NSLayoutConstraint!
+
     
     // MARK:- 控件
     @IBOutlet weak var profileImageView: UIImageView!
@@ -31,6 +34,7 @@ class WBStatusTableViewCell: UITableViewCell {
     @IBOutlet weak var retweetContentLabel: UILabel!
     
     @IBOutlet weak var pictureCollectionView: WBStatusPictureCollectionView!
+    @IBOutlet weak var retweetBackgroundView: UIView!
     
     // MARK:- 模型属性
     var viewModel : WBStatusViewModel? {
@@ -49,11 +53,14 @@ class WBStatusTableViewCell: UITableViewCell {
             //转发正文
             if viewModel.status?.retweeted_status != nil {
                 if let screenName = viewModel.status?.retweeted_status?.user?.screen_name, let retweetedText = viewModel.status?.retweeted_status?.text {
-                    retweetContentLabel.text = "@\(screenName) :" + retweetedText
+                    retweetContentLabel.text = "@\(screenName): " + retweetedText
                 }
-                
+                retweetBackgroundView.isHidden = false
+                retweetContextBottomSpaceConstraint.constant = marginOfRetweetBottom
             } else {
                 retweetContentLabel.text = nil
+                retweetBackgroundView.isHidden = true
+                retweetContextBottomSpaceConstraint.constant = 0
             }
             
             pictureViewBottomSpaceConstraint.constant = (viewModel.pictureURLs.count == 0) ? 0 : marginOfViews
@@ -88,10 +95,9 @@ extension WBStatusTableViewCell {
         
         if count == 1 {
             let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: viewModel?.pictureURLs.last?.absoluteString)
-            if image != nil  {
-                layout.itemSize = CGSize(width: (image?.size.width)! * 3, height: (image?.size.height)! * 3)
-                return CGSize(width: (image?.size.width)! * 3, height: (image?.size.height)! * 3)
-            }
+
+            layout.itemSize = CGSize(width: (image?.size.width)! * 3, height: (image?.size.height)! * 3)
+            return CGSize(width: (image?.size.width)! * 3, height: (image?.size.height)! * 3)
             
         }
         let imageWH = calculateSizeOfEachPicture()

@@ -55,7 +55,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="L5B-8C-GsZ" customClass="WBStatusPictureCollectionView" customModule="CWWeibo" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVg-85-xap" userLabel="转发背景">
+                        <rect key="frame" x="0.0" y="241" width="446" height="147"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="L5B-8C-GsZ" userLabel="图片" customClass="WBStatusPictureCollectionView" customModule="CWWeibo" customModuleProvider="target">
                         <rect key="frame" x="8" y="276" width="430" height="100"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -69,7 +73,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbi-Cy-p1g">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbi-Cy-p1g" userLabel="底部工具栏">
                         <rect key="frame" x="0.0" y="388" width="446" height="40"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buU-IA-6wl">
@@ -155,6 +159,7 @@
                     <constraint firstItem="mdo-C4-DzV" firstAttribute="trailing" secondItem="4JY-Pr-WcE" secondAttribute="trailing" id="AgV-Xf-kMW"/>
                     <constraint firstItem="S9A-Xn-dZT" firstAttribute="leading" secondItem="hM2-JX-0xe" secondAttribute="trailing" constant="8" id="AvP-nU-UVk"/>
                     <constraint firstItem="mdo-C4-DzV" firstAttribute="bottom" secondItem="4JY-Pr-WcE" secondAttribute="bottom" id="Bja-K7-IHb"/>
+                    <constraint firstItem="hbi-Cy-p1g" firstAttribute="top" secondItem="FVg-85-xap" secondAttribute="bottom" id="Bn5-oa-dbr"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4Nh-Ua-ig2" secondAttribute="trailing" id="C96-XD-ITZ"/>
                     <constraint firstItem="4Nh-Ua-ig2" firstAttribute="leading" secondItem="N68-vp-OBD" secondAttribute="leading" id="Cxb-Wg-teo"/>
                     <constraint firstAttribute="trailingMargin" secondItem="N68-vp-OBD" secondAttribute="trailing" id="D7T-hc-3db"/>
@@ -162,6 +167,7 @@
                     <constraint firstItem="hM2-JX-0xe" firstAttribute="leading" secondItem="4JY-Pr-WcE" secondAttribute="trailing" constant="8" id="DfY-VO-tXW"/>
                     <constraint firstItem="L5B-8C-GsZ" firstAttribute="top" secondItem="4Nh-Ua-ig2" secondAttribute="bottom" constant="10" id="HA7-GR-pEJ"/>
                     <constraint firstItem="hM2-JX-0xe" firstAttribute="bottom" secondItem="4JY-Pr-WcE" secondAttribute="bottom" id="Hli-If-Wcl"/>
+                    <constraint firstItem="FVg-85-xap" firstAttribute="top" secondItem="4Nh-Ua-ig2" secondAttribute="top" constant="-8" id="Llm-VD-tFq"/>
                     <constraint firstItem="4Nh-Ua-ig2" firstAttribute="top" secondItem="N68-vp-OBD" secondAttribute="bottom" constant="15" id="Mej-sb-Yd3"/>
                     <constraint firstItem="hbi-Cy-p1g" firstAttribute="top" secondItem="L5B-8C-GsZ" secondAttribute="bottom" constant="12" id="Mji-c0-unL"/>
                     <constraint firstItem="4JY-Pr-WcE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="WBi-iR-Jze"/>
@@ -170,7 +176,9 @@
                     <constraint firstAttribute="trailing" secondItem="hbi-Cy-p1g" secondAttribute="trailing" id="a2q-cb-gup"/>
                     <constraint firstItem="DDK-S9-uyG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="dD3-eA-OOy"/>
                     <constraint firstItem="DDK-S9-uyG" firstAttribute="leading" secondItem="4JY-Pr-WcE" secondAttribute="trailing" constant="8" id="dtV-1b-vqc"/>
+                    <constraint firstItem="FVg-85-xap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jWF-b9-qSA"/>
                     <constraint firstAttribute="bottom" secondItem="hbi-Cy-p1g" secondAttribute="bottom" id="k39-Zi-C6t"/>
+                    <constraint firstAttribute="trailing" secondItem="FVg-85-xap" secondAttribute="trailing" id="tHw-mX-tnb"/>
                     <constraint firstItem="hbi-Cy-p1g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uha-Rg-gPm"/>
                     <constraint firstItem="L5B-8C-GsZ" firstAttribute="leading" secondItem="N68-vp-OBD" secondAttribute="leading" id="utG-5z-OM5"/>
                     <constraint firstItem="N68-vp-OBD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="zu2-ag-NWc"/>
@@ -184,7 +192,9 @@
                 <outlet property="pictureViewHeightConstraint" destination="5EU-Cc-HZz" id="d5p-Di-IIH"/>
                 <outlet property="pictureViewWidthConstraint" destination="SHt-mM-tr7" id="s7m-Zj-QOd"/>
                 <outlet property="profileImageView" destination="4JY-Pr-WcE" id="voO-Or-sMV"/>
+                <outlet property="retweetBackgroundView" destination="FVg-85-xap" id="8dN-Sw-acu"/>
                 <outlet property="retweetContentLabel" destination="4Nh-Ua-ig2" id="Hd0-12-ORA"/>
+                <outlet property="retweetContextBottomSpaceConstraint" destination="Mej-sb-Yd3" id="93R-pW-FSZ"/>
                 <outlet property="sourceLabel" destination="S9A-Xn-dZT" id="KEf-Eh-Wpj"/>
                 <outlet property="timeLabel" destination="hM2-JX-0xe" id="c2q-Ki-4Ch"/>
                 <outlet property="vertifyImageView" destination="mdo-C4-DzV" id="Jic-G6-neE"/>

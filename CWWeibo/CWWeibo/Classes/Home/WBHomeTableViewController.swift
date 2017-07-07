@@ -116,9 +116,9 @@ extension WBHomeTableViewController {
             guard viewModel.pictureURLs.count == 1 else { continue }
             let picURL = viewModel.pictureURLs.last
             group.enter()
-            SDWebImageManager.shared().imageDownloader?.downloadImage(with: picURL, options: .useNSURLCache, progress: nil, completed: { (_, _, _, _) in
-                    group.leave()
-                })
+            SDWebImageManager.shared().loadImage(with: picURL, options: [], progress: nil, completed: { (_, _, _, _, _, _) in
+                group.leave()
+            })
         }
         group.notify(queue: .main) { 
             self.tableView.reloadData()
