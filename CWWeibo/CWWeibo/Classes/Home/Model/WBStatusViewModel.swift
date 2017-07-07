@@ -18,6 +18,7 @@ class WBStatusViewModel: NSObject {
     var verifiedImage : UIImage?
     var vipLevelImage : UIImage?
     var profileImageURL : URL?
+    var pictureURLs : [URL] = [URL]()
     
     
     init(status : WBStatusItem) {
@@ -58,6 +59,14 @@ class WBStatusViewModel: NSObject {
         } else {
             profileImageURL = nil
         }
-        
+        //处理配图URL数据
+        if let picURLDicts = status.pic_urls {
+            for pictureDict in picURLDicts {
+                guard let pictureURLString = pictureDict["thumbnail_pic"] else {
+                    continue
+                }
+                pictureURLs.append(URL(string: pictureURLString)!)
+            }
+        }
     }
 }

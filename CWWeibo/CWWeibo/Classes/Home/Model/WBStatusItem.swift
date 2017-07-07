@@ -16,7 +16,7 @@ class WBStatusItem: NSObject {
     var text : String?
     var id : Int?
     var user : WBUserItem?
-
+    var pic_urls : [[String : String]]?
     
     
     init(dict : [String : Any]) {
