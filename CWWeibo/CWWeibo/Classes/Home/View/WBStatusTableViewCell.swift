@@ -10,9 +10,6 @@ import UIKit
 import SDWebImage
 
 class WBStatusTableViewCell: UITableViewCell {
-    // MARK:- 约束
-    @IBOutlet weak var textLabelConstraintWidth: NSLayoutConstraint!
-    @IBOutlet weak var textLabelConstraintLeftMargin: NSLayoutConstraint!
     // MARK:- 控件
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -33,6 +30,8 @@ class WBStatusTableViewCell: UITableViewCell {
             sourceLabel.text = viewModel.sourceText
             vipLevelView.image = viewModel.vipLevelImage
             contentTextLabel.text = viewModel.status?.text
+            //昵称颜色
+            nameLabel.textColor = viewModel.vipLevelImage == nil ? UIColor.black : UIColor.orange
         }
     }
     
@@ -41,7 +40,6 @@ class WBStatusTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         profileImageView.makeCircle()
-        textLabelConstraintWidth.constant = UIScreen.main.bounds.width - 2 * textLabelConstraintLeftMargin.constant
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

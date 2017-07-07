@@ -31,6 +31,9 @@ class WBHomeTableViewController: WBBaseTableViewController {
         setupNavigationBar()
         
         loadStatuses()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
     }
 
 
