@@ -45,6 +45,7 @@
 		B9F945B91F0E7D86001370FE /* WBStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945B71F0E7D86001370FE /* WBStatusTableViewCell.swift */; };
 		B9F945BA1F0E7D86001370FE /* WBStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F945B81F0E7D86001370FE /* WBStatusTableViewCell.xib */; };
 		B9F945BE1F0E8C8D001370FE /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945BD1F0E8C8D001370FE /* Date-Extension.swift */; };
+		B9F945C01F0F45AC001370FE /* WBUserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945BF1F0F45AC001370FE /* WBUserItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		B9F945B71F0E7D86001370FE /* WBStatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusTableViewCell.swift; sourceTree = "<group>"; };
 		B9F945B81F0E7D86001370FE /* WBStatusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusTableViewCell.xib; sourceTree = "<group>"; };
 		B9F945BD1F0E8C8D001370FE /* Date-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
+		B9F945BF1F0F45AC001370FE /* WBUserItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserItem.swift; sourceTree = "<group>"; };
 		CDED448FB0CD65A12E8B7432 /* Pods-CWWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				B9F945B41F0E78CF001370FE /* WBStatusItem.swift */,
+				B9F945BF1F0F45AC001370FE /* WBUserItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			files = (
 				B9A5E4341F0CEAD700DB9401 /* UIBarButtonItem-Extension.swift in Sources */,
 				B9C5C37B1F0CB24C00878125 /* WBProfileTableViewController.swift in Sources */,
+				B9F945C01F0F45AC001370FE /* WBUserItem.swift in Sources */,
 				B9A5E42B1F0CBBFF00DB9401 /* UIButton-Extension.swift in Sources */,
 				B9F945AB1F0E15DC001370FE /* WBUserAccount.swift in Sources */,
 				B9C5C3751F0CB22800878125 /* WBHomeTableViewController.swift in Sources */,
