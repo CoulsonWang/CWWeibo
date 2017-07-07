@@ -28,6 +28,7 @@ class WBStatusTableViewCell: UITableViewCell {
     @IBOutlet weak var vertifyImageView: UIImageView!
     @IBOutlet weak var vipLevelView: UIImageView!
     @IBOutlet weak var contentTextLabel: UILabel!
+    @IBOutlet weak var retweetContentLabel: UILabel!
     
     @IBOutlet weak var pictureCollectionView: WBStatusPictureCollectionView!
     
@@ -45,6 +46,15 @@ class WBStatusTableViewCell: UITableViewCell {
             contentTextLabel.text = viewModel.status?.text
             //昵称颜色
             nameLabel.textColor = viewModel.vipLevelImage == nil ? UIColor.black : UIColor.orange
+            //转发正文
+            if viewModel.status?.retweeted_status != nil {
+                if let screenName = viewModel.status?.retweeted_status?.user?.screen_name, let retweetedText = viewModel.status?.retweeted_status?.text {
+                    retweetContentLabel.text = "@\(screenName) :" + retweetedText
+                }
+                
+            } else {
+                retweetContentLabel.text = nil
+            }
             
             pictureViewBottomSpaceConstraint.constant = (viewModel.pictureURLs.count == 0) ? 0 : marginOfViews
             let pictureViewSize = calculatePictureViewSize(count: viewModel.pictureURLs.count)

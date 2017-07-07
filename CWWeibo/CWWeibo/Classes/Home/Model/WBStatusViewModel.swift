@@ -60,7 +60,8 @@ class WBStatusViewModel: NSObject {
             profileImageURL = nil
         }
         //处理配图URL数据
-        if let picURLDicts = status.pic_urls {
+        let picURLDicts = (status.pic_urls?.count != 0) ? status.pic_urls : status.retweeted_status?.pic_urls
+        if let picURLDicts = picURLDicts {
             for pictureDict in picURLDicts {
                 guard let pictureURLString = pictureDict["thumbnail_pic"] else {
                     continue

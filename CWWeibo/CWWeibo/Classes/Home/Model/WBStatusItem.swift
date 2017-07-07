@@ -17,13 +17,16 @@ class WBStatusItem: NSObject {
     var id : Int?
     var user : WBUserItem?
     var pic_urls : [[String : String]]?
-    
+    var retweeted_status : WBStatusItem?
     
     init(dict : [String : Any]) {
         super.init()
         setValuesForKeys(dict)
         if let userDict = dict["user"] as? [String : Any] {
             user = WBUserItem(dict: userDict)
+        }
+        if let retweetedStatusDict = dict["retweeted_status"] as? [String : Any] {
+            retweeted_status = WBStatusItem(dict: retweetedStatusDict)
         }
     }
     

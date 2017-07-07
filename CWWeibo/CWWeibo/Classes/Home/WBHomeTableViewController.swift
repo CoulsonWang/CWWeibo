@@ -113,12 +113,12 @@ extension WBHomeTableViewController {
     private func cacheImages(viewModels : [WBStatusViewModel]) {
         let group = DispatchGroup.init()
         for viewModel in viewModels {
-            for picURL in viewModel.pictureURLs {
-                group.enter()
-                SDWebImageManager.shared().imageDownloader?.downloadImage(with: picURL, options: .useNSURLCache, progress: nil, completed: { (_, _, _, _) in
+            guard viewModel.pictureURLs.count == 1 else { continue }
+            let picURL = viewModel.pictureURLs.last
+            group.enter()
+            SDWebImageManager.shared().imageDownloader?.downloadImage(with: picURL, options: .useNSURLCache, progress: nil, completed: { (_, _, _, _) in
                     group.leave()
                 })
-            }
         }
         group.notify(queue: .main) { 
             self.tableView.reloadData()
