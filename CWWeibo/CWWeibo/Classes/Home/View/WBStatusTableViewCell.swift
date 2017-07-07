@@ -10,9 +10,13 @@ import UIKit
 
 class WBStatusTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var textLabelConstraintWidth: NSLayoutConstraint!
+    @IBOutlet weak var textLabelConstraintLeftMargin: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        textLabelConstraintWidth.constant = UIScreen.main.bounds.width - 2 * textLabelConstraintLeftMargin.constant
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

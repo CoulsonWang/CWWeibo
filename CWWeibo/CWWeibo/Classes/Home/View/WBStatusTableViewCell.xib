@@ -25,20 +25,35 @@
                             <constraint firstAttribute="width" constant="40" id="jr0-LK-FQt"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDK-S9-uyG">
-                        <rect key="frame" x="56" y="8" width="38" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDK-S9-uyG">
+                        <rect key="frame" x="56" y="8" width="54" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hM2-JX-0xe">
-                        <rect key="frame" x="56" y="31" width="36" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hM2-JX-0xe">
+                        <rect key="frame" x="56" y="36" width="41" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9A-Xn-dZT">
-                        <rect key="frame" x="100" y="31" width="36" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微博来源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9A-Xn-dZT">
+                        <rect key="frame" x="105" y="36" width="41" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_vip" translatesAutoresizingMaskIntoConstraints="NO" id="mdo-C4-DzV" userLabel="认证">
+                        <rect key="frame" x="31" y="31" width="17" height="17"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_icon_membership_level1" translatesAutoresizingMaskIntoConstraints="NO" id="69R-GQ-unL" userLabel="Vip">
+                        <rect key="frame" x="115" y="9" width="14" height="14"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N68-vp-OBD">
+                        <rect key="frame" x="8" y="60" width="36" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="0ho-hr-PzU"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -46,19 +61,31 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="4JY-Pr-WcE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="25X-8t-p6G"/>
+                    <constraint firstItem="69R-GQ-unL" firstAttribute="centerY" secondItem="DDK-S9-uyG" secondAttribute="centerY" id="41a-HX-JFu"/>
+                    <constraint firstItem="mdo-C4-DzV" firstAttribute="trailing" secondItem="4JY-Pr-WcE" secondAttribute="trailing" id="AgV-Xf-kMW"/>
                     <constraint firstItem="S9A-Xn-dZT" firstAttribute="leading" secondItem="hM2-JX-0xe" secondAttribute="trailing" constant="8" id="AvP-nU-UVk"/>
+                    <constraint firstItem="mdo-C4-DzV" firstAttribute="bottom" secondItem="4JY-Pr-WcE" secondAttribute="bottom" id="Bja-K7-IHb"/>
                     <constraint firstItem="S9A-Xn-dZT" firstAttribute="baseline" secondItem="hM2-JX-0xe" secondAttribute="baseline" id="DFh-5x-7sE"/>
                     <constraint firstItem="hM2-JX-0xe" firstAttribute="leading" secondItem="4JY-Pr-WcE" secondAttribute="trailing" constant="8" id="DfY-VO-tXW"/>
                     <constraint firstItem="hM2-JX-0xe" firstAttribute="bottom" secondItem="4JY-Pr-WcE" secondAttribute="bottom" id="Hli-If-Wcl"/>
                     <constraint firstItem="4JY-Pr-WcE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="WBi-iR-Jze"/>
+                    <constraint firstItem="N68-vp-OBD" firstAttribute="top" secondItem="mdo-C4-DzV" secondAttribute="bottom" constant="12" id="Xpo-qT-RFm"/>
+                    <constraint firstItem="69R-GQ-unL" firstAttribute="leading" secondItem="DDK-S9-uyG" secondAttribute="trailing" constant="5" id="YbD-6w-OYX"/>
                     <constraint firstItem="DDK-S9-uyG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="dD3-eA-OOy"/>
                     <constraint firstItem="DDK-S9-uyG" firstAttribute="leading" secondItem="4JY-Pr-WcE" secondAttribute="trailing" constant="8" id="dtV-1b-vqc"/>
+                    <constraint firstItem="N68-vp-OBD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="zu2-ag-NWc"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="textLabelConstraintLeftMargin" destination="zu2-ag-NWc" id="k6S-vM-Dpw"/>
+                <outlet property="textLabelConstraintWidth" destination="0ho-hr-PzU" id="XqV-IC-YSf"/>
+            </connections>
             <point key="canvasLocation" x="88" y="49.5"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="avatar_default_small" width="34" height="34"/>
+        <image name="avatar_vip" width="17" height="17"/>
+        <image name="common_icon_membership_level1" width="14" height="14"/>
     </resources>
 </document>
