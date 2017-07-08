@@ -62,11 +62,13 @@ class WBStatusTableViewCell: UITableViewCell {
                 retweetBackgroundView.isHidden = true
                 retweetContextBottomSpaceConstraint.constant = 0
             }
-            
+            //配图底部约束
             pictureViewBottomSpaceConstraint.constant = (viewModel.pictureURLs.count == 0) ? 0 : marginOfViews
+            //计算配图View的尺寸
             let pictureViewSize = calculatePictureViewSize(count: viewModel.pictureURLs.count)
             pictureViewWidthConstraint.constant = pictureViewSize.width
             pictureViewHeightConstraint.constant = pictureViewSize.height
+            //给配图View传数据
             pictureCollectionView.pictureURLs = viewModel.pictureURLs
         }
     }

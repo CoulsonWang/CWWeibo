@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import MJRefresh
 
 class WBHomeTableViewController: WBBaseTableViewController {
     
@@ -35,6 +36,8 @@ class WBHomeTableViewController: WBBaseTableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
+        
+        
     }
 
 
