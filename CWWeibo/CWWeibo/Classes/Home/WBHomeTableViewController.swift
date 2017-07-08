@@ -27,20 +27,20 @@ class WBHomeTableViewController: WBBaseTableViewController {
         guard isLogin else {
             return
         }
-        
+        //注册cell
         tableView.register(UINib.init(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
-        
+        //初始化Nav
         setupNavigationBar()
-        
-        loadStatuses()
+        //设置下拉刷新
+        setupHeaderView()
+        //设置上拉刷新
+        setupFooterView()
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
-        
+        tableView.mj_header.beginRefreshing()
     }
-
-
 }
 
 
@@ -56,6 +56,20 @@ extension WBHomeTableViewController {
         titleBtn.setTitle("Coulson", for: .normal)
         titleBtn.addTarget(self, action: #selector(titleBtnClick(_:)), for: .touchUpInside)
         navigationItem.titleView = titleBtn
+    }
+    
+    fileprivate func setupHeaderView() {
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewestData))
+        header?.setTitle("下拉刷新", for: .idle)
+        header?.setTitle("松开即可刷新", for: .pulling)
+        header?.setTitle("加载中", for: .refreshing)
+        
+        tableView.mj_header = header
+    }
+    
+    fileprivate func setupFooterView() {
+        let footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
+        tableView.mj_footer = footer
     }
 }
 
@@ -91,8 +105,18 @@ extension WBHomeTableViewController : WBPopoverAnimatorDelegate {
 
 // MARK:- 请求数据
 extension WBHomeTableViewController {
-    fileprivate func loadStatuses() {
-        CWNetworkTool.sharedInstance.loadStatusesData { (result, error) in
+    fileprivate func loadStatuses(_ isNewData : Bool) {
+        var since_id = 0
+        var max_id = 0
+        
+        if isNewData {
+            since_id = statusViewModels.first?.status?.id ?? 0
+        } else {
+            max_id = statusViewModels.last?.status?.id ?? 0
+            max_id = (max_id == 0) ? 0 : (max_id - 1)
+        }
+        
+        CWNetworkTool.sharedInstance.loadStatusesData(since_id: since_id, max_id: max_id) { (result, error) in
             if error != nil {
                 print(error!)
                 return
@@ -100,19 +124,26 @@ extension WBHomeTableViewController {
             guard let resultArray = result else {
                 return
             }
-            
+            //创建临时数组
+            var tempViewModels = [WBStatusViewModel]()
+            //遍历字典，将转换为模型后加到临时数组中
             for statusDict in resultArray {
                 //字典转模型
                 let status = WBStatusItem(dict: statusDict)
                 let viewModel = WBStatusViewModel(status: status)
-                self.statusViewModels.append(viewModel)
+                tempViewModels.append(viewModel)
             }
+            //拼接两个数组
+            self.statusViewModels = (isNewData) ? (tempViewModels + self.statusViewModels) : (self.statusViewModels + tempViewModels)
             
-            self.cacheImages(viewModels: self.statusViewModels)
+            self.cacheImages(viewModels: tempViewModels)
             
         }
     }
     
+    /// 缓存图片，用于计算单图微博的图片尺寸
+    ///
+    /// - Parameter viewModels: 需要缓存的模型数组
     private func cacheImages(viewModels : [WBStatusViewModel]) {
         let group = DispatchGroup.init()
         for viewModel in viewModels {
@@ -125,7 +156,16 @@ extension WBHomeTableViewController {
         }
         group.notify(queue: .main) { 
             self.tableView.reloadData()
+            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
         }
+    }
+    
+    @objc fileprivate func loadNewestData() {
+        loadStatuses(true)
+    }
+    @objc fileprivate func loadMoreData() {
+        loadStatuses(false)
     }
 }
 

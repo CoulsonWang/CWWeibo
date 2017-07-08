@@ -73,10 +73,10 @@ extension CWNetworkTool {
 
 // MARK:- 请求主页数据
 extension CWNetworkTool {
-    func loadStatusesData(completion : @escaping (_ result : [[String : Any]]?, _ error : Error?)->()) {
+    func loadStatusesData(since_id : Int , max_id : Int, completion : @escaping (_ result : [[String : Any]]?, _ error : Error?)->()) {
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         
-        let parameters = ["access_token" : (WBUserAccountViewModel.sharedInstance.account?.access_token)!]
+        let parameters = ["access_token" : (WBUserAccountViewModel.sharedInstance.account?.access_token)!, "since_id" : "\(since_id)", "max_id" : "\(max_id)"]
         
         request(.get, urlString: urlString, parameters: parameters) { (result, error) in
             

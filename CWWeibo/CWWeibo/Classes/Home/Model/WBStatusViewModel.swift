@@ -29,7 +29,8 @@ class WBStatusViewModel: NSObject {
         if let source = status.source, status.source != ""  {
             let startLocation = (source as NSString).range(of: ">").location + 1
             let length = (source as NSString).range(of: "</").location - startLocation
-            sourceText = (source as NSString).substring(with: NSRange(location: startLocation, length: length))
+            let sourceStr = (source as NSString).substring(with: NSRange(location: startLocation, length: length))
+            sourceText = "来自 " + sourceStr
         }
         //处理时间字符串
         if let created_at = status.created_at {
