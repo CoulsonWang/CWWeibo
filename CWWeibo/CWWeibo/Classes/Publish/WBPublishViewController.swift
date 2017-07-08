@@ -11,6 +11,16 @@ import UIKit
 class WBPublishViewController: UIViewController {
 
     @IBOutlet weak var textView: WBPublishTextView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
+    fileprivate lazy var coverView : UIView = {
+        let view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = UIColor.clear
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tempViewDidBeenClick)))
+        
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,12 +28,18 @@ class WBPublishViewController: UIViewController {
         setupNavigationBar()
         
         textView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(note:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         textView.becomeFirstResponder()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
 }
@@ -41,11 +57,30 @@ extension WBPublishViewController {
 // MARK:- 监听事件
 extension WBPublishViewController {
     @objc fileprivate func cancelPublish() {
+        textView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
     
     @objc fileprivate func sendPublish() {
         
+    }
+    
+    @objc fileprivate func keyboardWillChangeFrame(note : Notification) {
+        let duration = note.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
+        
+        let keyboardEndFrame = (note.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardY = keyboardEndFrame.origin.y
+        
+        let spaceOfToolBetweenBottom = UIScreen.main.bounds.height - keyboardY
+        bottomConstraint.constant = spaceOfToolBetweenBottom
+        
+        UIView.animate(withDuration: duration) { 
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc fileprivate func tempViewDidBeenClick() {
+        textView.resignFirstResponder()
     }
 }
 
@@ -58,6 +93,14 @@ extension WBPublishViewController : UITextViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         textView.resignFirstResponder()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        view.addSubview(coverView)
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        coverView.removeFromSuperview()
     }
 }
 
