@@ -79,6 +79,7 @@ extension WBPublishViewController {
     @IBAction func pickPictureButtonClick(_ sender: UIButton) {
         textView.resignFirstResponder()
         collectionViewHeightConstraint.constant = picturePickerView.isPicking ? 0 : UIScreen.main.bounds.height * 0.64
+        picturePickerView.isPicking = !picturePickerView.isPicking
         UIView.animate(withDuration: 0.25) { 
             self.view.layoutIfNeeded()
         }
@@ -130,6 +131,13 @@ extension WBPublishViewController : UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.addSubview(coverView)
+        
+        //收起图片选择器
+        picturePickerView.isPicking = false
+        collectionViewHeightConstraint.constant = 0
+        UIView.animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

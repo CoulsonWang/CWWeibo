@@ -16,7 +16,6 @@ class WBPicturePickerCollectionView: UICollectionView {
     
     var isPicking : Bool = false
     
-    
     var images : [UIImage] = [UIImage]() {
         didSet {
             reloadData()
