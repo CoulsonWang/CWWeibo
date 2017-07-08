@@ -11,6 +11,7 @@
 		B94135801F10C7B6002BCCC9 /* WBPublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941357E1F10C7B6002BCCC9 /* WBPublishViewController.swift */; };
 		B94135811F10C7B6002BCCC9 /* WBPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941357F1F10C7B6002BCCC9 /* WBPublishViewController.xib */; };
 		B94135831F10C962002BCCC9 /* WBPublishTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94135821F10C962002BCCC9 /* WBPublishTitleView.swift */; };
+		B94135851F10CEE0002BCCC9 /* WBPublishTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94135841F10CEE0002BCCC9 /* WBPublishTextView.swift */; };
 		B9A5E42B1F0CBBFF00DB9401 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42A1F0CBBFF00DB9401 /* UIButton-Extension.swift */; };
 		B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */; };
 		B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */; };
@@ -62,6 +63,7 @@
 		B941357E1F10C7B6002BCCC9 /* WBPublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPublishViewController.swift; sourceTree = "<group>"; };
 		B941357F1F10C7B6002BCCC9 /* WBPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBPublishViewController.xib; sourceTree = "<group>"; };
 		B94135821F10C962002BCCC9 /* WBPublishTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPublishTitleView.swift; sourceTree = "<group>"; };
+		B94135841F10CEE0002BCCC9 /* WBPublishTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPublishTextView.swift; sourceTree = "<group>"; };
 		B9A5E42A1F0CBBFF00DB9401 /* UIButton-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBBaseTableViewController.swift; sourceTree = "<group>"; };
 		B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				B941357E1F10C7B6002BCCC9 /* WBPublishViewController.swift */,
 				B941357F1F10C7B6002BCCC9 /* WBPublishViewController.xib */,
 				B94135821F10C962002BCCC9 /* WBPublishTitleView.swift */,
+				B94135841F10CEE0002BCCC9 /* WBPublishTextView.swift */,
 			);
 			path = Publish;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				B9F945A21F0D37F9001370FE /* CWNetworkTool.swift in Sources */,
 				B9A5E43F1F0D135F00DB9401 /* WBPresentationController.swift in Sources */,
 				B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */,
+				B94135851F10CEE0002BCCC9 /* WBPublishTextView.swift in Sources */,
 				B9F945A91F0E0706001370FE /* CWConst.swift in Sources */,
 				B9A5E4361F0CEDD400DB9401 /* WBNavigationTitleButton.swift in Sources */,
 				B94135801F10C7B6002BCCC9 /* WBPublishViewController.swift in Sources */,

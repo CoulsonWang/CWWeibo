@@ -64,11 +64,21 @@ class WBStatusViewModel: NSObject {
         //处理配图URL数据
         let picURLDicts = (status.pic_urls?.count != 0) ? status.pic_urls : status.retweeted_status?.pic_urls
         if let picURLDicts = picURLDicts {
-            for pictureDict in picURLDicts {
-                guard let pictureURLString = pictureDict["thumbnail_pic"] else {
-                    continue
+            //如果只有一张图片，则保存其原始图片
+            if picURLDicts.count == 1 {
+                let pictureDict = picURLDicts.last!
+                let pictureThumbnailURLString = pictureDict["thumbnail_pic"]!
+                let pictureOriginalURLString = pictureThumbnailURLString.replacingOccurrences(of: "thumbnail", with: "large")
+                pictureURLs.append(URL(string: pictureOriginalURLString)!)
+            } else {
+                //获取中等尺寸图片
+                for pictureDict in picURLDicts {
+                    guard let pictureURLString = pictureDict["thumbnail_pic"] else {
+                        continue
+                    }
+                    let pictureMiddelURLString = pictureURLString.replacingOccurrences(of: "thumbnail", with: "bmiddle")
+                    pictureURLs.append(URL(string: pictureMiddelURLString)!)
                 }
-                pictureURLs.append(URL(string: pictureURLString)!)
             }
         }
         //处理mid字符串

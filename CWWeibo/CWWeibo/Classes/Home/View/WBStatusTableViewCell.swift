@@ -97,9 +97,15 @@ extension WBStatusTableViewCell {
         
         if count == 1 {
             let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: viewModel?.pictureURLs.last?.absoluteString)
-
-            layout.itemSize = CGSize(width: (image?.size.width)! * 3, height: (image?.size.height)! * 3)
-            return CGSize(width: (image?.size.width)! * 3, height: (image?.size.height)! * 3)
+            let viewWidth = UIScreen.main.bounds.width - 2 * marginOfedge
+            if (image?.size.width)! <= viewWidth {
+                layout.itemSize = (image?.size)!
+                return (image?.size)!
+            } else {
+                let displayHeight = viewWidth * (image?.size.height)! / (image?.size.width)!
+                layout.itemSize = CGSize(width: viewWidth, height: displayHeight)
+                return CGSize(width: viewWidth, height: displayHeight)
+            }
             
         }
         let imageWH = calculateSizeOfEachPicture()
