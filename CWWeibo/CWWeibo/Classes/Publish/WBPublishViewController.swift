@@ -10,10 +10,20 @@ import UIKit
 
 class WBPublishViewController: UIViewController {
 
+    @IBOutlet weak var textView: WBPublishTextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavigationBar()
+        
+        textView.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        textView.becomeFirstResponder()
     }
 
 }
@@ -36,6 +46,18 @@ extension WBPublishViewController {
     
     @objc fileprivate func sendPublish() {
         
+    }
+}
+
+// MARK:- textView代理方法
+extension WBPublishViewController : UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        self.textView.placeholderLabel.isHidden = textView.hasText
+        navigationItem.rightBarButtonItem?.isEnabled = textView.hasText
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        textView.resignFirstResponder()
     }
 }
 

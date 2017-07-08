@@ -37,7 +37,7 @@ class WBHomeTableViewController: WBBaseTableViewController {
         //设置上拉刷新
         setupFooterView()
         //设置刷新提示
-//        setupTipsLabel()
+        setupTipsLabel()
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
@@ -47,7 +47,7 @@ class WBHomeTableViewController: WBBaseTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTipsLabel()
+        
     }
 }
 

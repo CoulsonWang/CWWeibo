@@ -11,7 +11,7 @@ import SnapKit
 
 class WBPublishTextView: UITextView {
     
-    fileprivate lazy var placeholderLabel = UILabel()
+    lazy var placeholderLabel = UILabel()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
