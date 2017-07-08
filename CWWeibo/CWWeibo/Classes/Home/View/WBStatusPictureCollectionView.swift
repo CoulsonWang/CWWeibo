@@ -21,6 +21,7 @@ class WBStatusPictureCollectionView: UICollectionView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.isScrollEnabled = false
         dataSource = self
         register(UINib.init(nibName: "WBPictureCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellID)
     }
