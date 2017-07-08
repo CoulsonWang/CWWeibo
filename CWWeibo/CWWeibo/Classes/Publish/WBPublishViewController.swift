@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Photos
+import SVProgressHUD
 
 class WBPublishViewController: UIViewController {
 
     @IBOutlet weak var textView: WBPublishTextView!
+    @IBOutlet weak var picturePickerView: WBPicturePickerCollectionView!
+    
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
@@ -22,6 +26,13 @@ class WBPublishViewController: UIViewController {
         
         return view
     }()
+    fileprivate lazy var images : [UIImage] = [UIImage]()
+    lazy var pickerVC : UIImagePickerController = {
+        let pickVC = UIImagePickerController()
+        pickVC.sourceType = .photoLibrary
+        pickVC.delegate = self
+        return pickVC
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +41,16 @@ class WBPublishViewController: UIViewController {
         
         textView.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(note:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        setupNotifications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        textView.becomeFirstResponder()
+        if collectionViewHeightConstraint.constant == 0 {
+            textView.becomeFirstResponder()
+        }
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -53,13 +65,20 @@ extension WBPublishViewController {
         
         navigationItem.titleView = WBPublishTitleView(frame: CGRect(x: 0, y: 0, width: 200, height: 44))
     }
+    
+    fileprivate func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(note:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addPicture(note:)), name: PicturePickerAddPhotoNotification, object: nil)
+        
+    }
 }
 
 // MARK:- 监听事件
 extension WBPublishViewController {
     @IBAction func pickPictureButtonClick(_ sender: UIButton) {
         textView.resignFirstResponder()
-        collectionViewHeightConstraint.constant = UIScreen.main.bounds.height * 0.64
+        collectionViewHeightConstraint.constant = picturePickerView.isPicking ? 0 : UIScreen.main.bounds.height * 0.64
         UIView.animate(withDuration: 0.25) { 
             self.view.layoutIfNeeded()
         }
@@ -118,3 +137,38 @@ extension WBPublishViewController : UITextViewDelegate {
     }
 }
 
+// MARK:- 图片选取相关
+extension WBPublishViewController {
+    @objc fileprivate func addPicture(note : Notification) {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
+        
+        let libraryStatus = PHPhotoLibrary.authorizationStatus()
+        if libraryStatus == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                self.handleStatus(status: status)
+            })
+        } else {
+            handleStatus(status: libraryStatus)
+        }
+        
+    }
+    
+    private func handleStatus(status : PHAuthorizationStatus) {
+        if status == .authorized {
+            self.present(self.pickerVC, animated: true, completion: nil)
+        } else {
+            SVProgressHUD.showError(withStatus: "请先开启相册权限！")
+        }
+    }
+}
+
+// MARK:- UIImagePickerControllerDelegate 
+extension WBPublishViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        images.append(image)
+        picturePickerView.images = images
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+}

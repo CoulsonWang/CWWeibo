@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="bottomConstraint" destination="pPa-uW-OzL" id="8rY-d9-y4c"/>
                 <outlet property="collectionViewHeightConstraint" destination="Z1G-vs-OU8" id="Ut1-Zq-GwV"/>
+                <outlet property="picturePickerView" destination="6wj-Kf-Bir" id="dOA-Gc-AQL"/>
                 <outlet property="textView" destination="FFv-XT-obq" id="KMO-Yv-6Ca"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -49,7 +50,7 @@
                         <barButtonItem title="   " id="ZV9-sR-8F3"/>
                         <barButtonItem style="plain" id="esl-pl-k2z">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Cd-hI-5YN">
-                                <rect key="frame" x="44" y="10" width="24" height="24"/>
+                                <rect key="frame" x="43" y="10" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_toolbar_picture"/>
                                 <state key="highlighted" image="compose_toolbar_picture_highlighted"/>
@@ -61,7 +62,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="nAZ-Wf-C6G"/>
                         <barButtonItem style="plain" id="W8A-5B-bLF">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rKm-C7-I2Q">
-                                <rect key="frame" x="120" y="10" width="24" height="24"/>
+                                <rect key="frame" x="119" y="10" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_mentionbutton_background"/>
                                 <state key="highlighted" image="compose_mentionbutton_background_highlighted"/>
@@ -91,7 +92,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="6WI-4u-aag"/>
                         <barButtonItem style="plain" id="Y2s-7T-3px">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zbD-NG-VWm">
-                                <rect key="frame" x="346" y="10" width="24" height="24"/>
+                                <rect key="frame" x="347" y="10" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_keyboardbutton_background"/>
                                 <state key="highlighted" image="compose_keyboardbutton_background_highlighted"/>

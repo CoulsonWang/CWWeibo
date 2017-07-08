@@ -15,5 +15,6 @@ let redirect_uri = "http://www.jianshu.com/u/647a2123d2ef"
 let basic_uri = "https://api.weibo.com/oauth2/authorize"
 let grant_type = "authorization_code"
 
-
+//通知常量
+let PicturePickerAddPhotoNotification = Notification.Name("PicturePickerAddPhotoNotification")
 		

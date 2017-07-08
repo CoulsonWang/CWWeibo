@@ -21,10 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="192" height="192"/>
                         <state key="normal" backgroundImage="compose_pic_add"/>
                         <state key="highlighted" backgroundImage="compose_pic_add_highlighted"/>
+                        <connections>
+                            <action selector="addPictureButtonClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6s2-ih-44M"/>
+                        </connections>
                     </button>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6k-X3-iGh">
                         <rect key="frame" x="168" y="0.0" width="24" height="24"/>
                         <state key="normal" image="compose_photo_close"/>
+                        <connections>
+                            <action selector="deleteButtonClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ghf-sQ-f53"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -37,6 +43,9 @@
                 <constraint firstItem="zbb-fR-JQp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qfj-FL-pWQ"/>
             </constraints>
             <size key="customSize" width="192" height="192"/>
+            <connections>
+                <outlet property="addButton" destination="zbb-fR-JQp" id="fRc-0s-62j"/>
+            </connections>
             <point key="canvasLocation" x="10" y="-76"/>
         </collectionViewCell>
     </objects>

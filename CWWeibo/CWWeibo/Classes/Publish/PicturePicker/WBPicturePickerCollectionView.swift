@@ -13,6 +13,15 @@ private let marginOfEdge : CGFloat = 15
 private let marginBetweenItems : CGFloat = 12
 
 class WBPicturePickerCollectionView: UICollectionView {
+    
+    var isPicking : Bool = false
+    
+    
+    var images : [UIImage] = [UIImage]() {
+        didSet {
+            reloadData()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,13 +50,13 @@ extension WBPicturePickerCollectionView {
 
 extension WBPicturePickerCollectionView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 1 + images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! WBPicturePickerViewCell
         
-        
+        cell.image = (indexPath.item <= images.count - 1) ? images[indexPath.item] : nil
         
         return cell
     }

@@ -9,10 +9,31 @@
 import UIKit
 
 class WBPicturePickerViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var addButton: UIButton!
+    
+    
+    var image : UIImage? {
+        didSet {
+            if image != nil {
+                addButton.setBackgroundImage(image, for: .normal)
+                addButton.isUserInteractionEnabled = false
+            } else {
+                addButton.setBackgroundImage(#imageLiteral(resourceName: "compose_pic_add"), for: .normal)
+                addButton.setBackgroundImage(#imageLiteral(resourceName: "compose_pic_add_highlighted"), for: .highlighted)
+                addButton.isUserInteractionEnabled = true
+            }
+        }
+    }
+    
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBAction func addPictureButtonClick(_ sender: UIButton) {
+        
+        NotificationCenter.default.post(name: PicturePickerAddPhotoNotification, object: self, userInfo: nil)
+        
+    }
+
+    @IBAction func deleteButtonClick(_ sender: UIButton) {
     }
 
 }
