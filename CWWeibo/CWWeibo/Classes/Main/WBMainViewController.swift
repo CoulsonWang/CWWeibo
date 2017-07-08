@@ -35,6 +35,11 @@ extension WBMainViewController {
 // MARK:- 事件监听
 extension WBMainViewController {
     @objc fileprivate func publishBtnClick() -> Void {
-        CWLog("")
+        let publishVC = WBPublishViewController()
+        
+        let publishNavVC = UINavigationController(rootViewController: publishVC)
+        
+        present(publishNavVC, animated: true, completion: nil)
+        
     }
 }

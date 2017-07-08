@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1339095D126DA6996212BA91 /* Pods_CWWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD7DE1266880AFA2568E511 /* Pods_CWWeibo.framework */; };
+		B94135801F10C7B6002BCCC9 /* WBPublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941357E1F10C7B6002BCCC9 /* WBPublishViewController.swift */; };
+		B94135811F10C7B6002BCCC9 /* WBPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941357F1F10C7B6002BCCC9 /* WBPublishViewController.xib */; };
+		B94135831F10C962002BCCC9 /* WBPublishTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94135821F10C962002BCCC9 /* WBPublishTitleView.swift */; };
 		B9A5E42B1F0CBBFF00DB9401 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42A1F0CBBFF00DB9401 /* UIButton-Extension.swift */; };
 		B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */; };
 		B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */; };
@@ -56,6 +59,9 @@
 /* Begin PBXFileReference section */
 		0CE5DB0672B1F3D7C50B15F5 /* Pods-CWWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CWWeibo/Pods-CWWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		ACD7DE1266880AFA2568E511 /* Pods_CWWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B941357E1F10C7B6002BCCC9 /* WBPublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPublishViewController.swift; sourceTree = "<group>"; };
+		B941357F1F10C7B6002BCCC9 /* WBPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBPublishViewController.xib; sourceTree = "<group>"; };
+		B94135821F10C962002BCCC9 /* WBPublishTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPublishTitleView.swift; sourceTree = "<group>"; };
 		B9A5E42A1F0CBBFF00DB9401 /* UIButton-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBBaseTableViewController.swift; sourceTree = "<group>"; };
 		B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
@@ -276,6 +282,9 @@
 			isa = PBXGroup;
 			children = (
 				B9C5C3701F0CB01200878125 /* Publish.storyboard */,
+				B941357E1F10C7B6002BCCC9 /* WBPublishViewController.swift */,
+				B941357F1F10C7B6002BCCC9 /* WBPublishViewController.xib */,
+				B94135821F10C962002BCCC9 /* WBPublishTitleView.swift */,
 			);
 			path = Publish;
 			sourceTree = "<group>";
@@ -405,6 +414,7 @@
 				B9A5E4321F0CCC9D00DB9401 /* WBVisitorView.xib in Resources */,
 				B9C5C3561F0C9B7C00878125 /* MainVCSettings.json in Resources */,
 				B9F945B21F0E4ADB001370FE /* WBWelcomeViewController.xib in Resources */,
+				B94135811F10C7B6002BCCC9 /* WBPublishViewController.xib in Resources */,
 				B9C5C3721F0CB01200878125 /* Publish.storyboard in Resources */,
 				B9C5C3851F0CB31800878125 /* Profile.storyboard in Resources */,
 				B9C5C37D1F0CB2EE00878125 /* Main.storyboard in Resources */,
@@ -484,6 +494,8 @@
 				B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */,
 				B9F945A91F0E0706001370FE /* CWConst.swift in Sources */,
 				B9A5E4361F0CEDD400DB9401 /* WBNavigationTitleButton.swift in Sources */,
+				B94135801F10C7B6002BCCC9 /* WBPublishViewController.swift in Sources */,
+				B94135831F10C962002BCCC9 /* WBPublishTitleView.swift in Sources */,
 				B9F945B91F0E7D86001370FE /* WBStatusTableViewCell.swift in Sources */,
 				B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */,
 				B9C5C3791F0CB24300878125 /* WBDiscoverTableViewController.swift in Sources */,
