@@ -19,6 +19,7 @@ class WBStatusViewModel: NSObject {
     var vipLevelImage : UIImage?
     var profileImageURL : URL?
     var pictureURLs : [URL] = [URL]()
+    var mid_Int : Int?
     
     
     init(status : WBStatusItem) {
@@ -70,5 +71,11 @@ class WBStatusViewModel: NSObject {
                 pictureURLs.append(URL(string: pictureURLString)!)
             }
         }
+        //处理mid字符串
+        if let midValue = Int(status.mid!) {
+            mid_Int = midValue
+        }
+        
+        
     }
 }

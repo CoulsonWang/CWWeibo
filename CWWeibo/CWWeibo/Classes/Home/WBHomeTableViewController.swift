@@ -10,14 +10,16 @@ import UIKit
 import SDWebImage
 import MJRefresh
 
+private let cellID = "WBStatusTableViewCell"
+private let tipsLabelHeight : CGFloat = 30
+
 class WBHomeTableViewController: WBBaseTableViewController {
-    
-    let cellID = "WBStatusTableViewCell"
     
     // MARK:- 懒加载
     fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
     fileprivate lazy var popoverAnimator : WBPopoverAnimator = WBPopoverAnimator()
     fileprivate lazy var statusViewModels : [WBStatusViewModel] = [WBStatusViewModel]()
+    fileprivate lazy var tipsLabel : UILabel = UILabel()
     // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,6 @@ class WBHomeTableViewController: WBBaseTableViewController {
         guard isLogin else {
             return
         }
-        //注册cell
         tableView.register(UINib.init(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
         //初始化Nav
         setupNavigationBar()
@@ -35,11 +36,18 @@ class WBHomeTableViewController: WBBaseTableViewController {
         setupHeaderView()
         //设置上拉刷新
         setupFooterView()
+        //设置刷新提示
+//        setupTipsLabel()
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
         tableView.mj_header.beginRefreshing()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTipsLabel()
     }
 }
 
@@ -70,6 +78,17 @@ extension WBHomeTableViewController {
     fileprivate func setupFooterView() {
         let footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
         tableView.mj_footer = footer
+    }
+    
+    fileprivate func setupTipsLabel() {
+        let superView = tableView.superview
+        superView?.addSubview(tipsLabel)
+        tipsLabel.frame = CGRect(x: 0, y: 64 - tipsLabelHeight, width: UIScreen.main.bounds.width, height: tipsLabelHeight)
+        tipsLabel.backgroundColor = UIColor.orange
+        tipsLabel.textColor = UIColor.white
+        tipsLabel.font = UIFont.systemFont(ofSize: 14)
+        tipsLabel.textAlignment = .center
+        tipsLabel.alpha = 0.0
     }
 }
 
@@ -110,12 +129,11 @@ extension WBHomeTableViewController {
         var max_id = 0
         
         if isNewData {
-            since_id = statusViewModels.first?.status?.id ?? 0
+            since_id = statusViewModels.first?.mid_Int ?? 0
         } else {
-            max_id = statusViewModels.last?.status?.id ?? 0
+            max_id = statusViewModels.last?.mid_Int ?? 0
             max_id = (max_id == 0) ? 0 : (max_id - 1)
         }
-        
         CWNetworkTool.sharedInstance.loadStatusesData(since_id: since_id, max_id: max_id) { (result, error) in
             if error != nil {
                 print(error!)
@@ -135,9 +153,7 @@ extension WBHomeTableViewController {
             }
             //拼接两个数组
             self.statusViewModels = (isNewData) ? (tempViewModels + self.statusViewModels) : (self.statusViewModels + tempViewModels)
-            
             self.cacheImages(viewModels: tempViewModels)
-            
         }
     }
     
@@ -158,6 +174,8 @@ extension WBHomeTableViewController {
             self.tableView.reloadData()
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
+            
+            self.showTipsLable(count: viewModels.count)
         }
     }
     
@@ -166,6 +184,22 @@ extension WBHomeTableViewController {
     }
     @objc fileprivate func loadMoreData() {
         loadStatuses(false)
+    }
+    
+    private func showTipsLable(count : Int) {
+        tipsLabel.isHidden = false
+        tipsLabel.text = (count == 0) ? "没有新数据" : "获取到\(count)条新数据"
+        UIView.animate(withDuration: 1.5, animations: { 
+            self.tipsLabel.alpha = 1.0
+            self.tipsLabel.frame.origin.y += tipsLabelHeight
+        }) { (_) in
+            UIView.animate(withDuration: 1.5, delay: 0.5, options: [], animations: {
+                self.tipsLabel.alpha = 0.0
+                self.tipsLabel.frame.origin.y -= tipsLabelHeight
+            }, completion: { (_) in
+                self.tipsLabel.isHidden = true
+            })
+        }
     }
 }
 

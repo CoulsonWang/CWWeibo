@@ -14,7 +14,7 @@ class WBStatusItem: NSObject {
     var created_at : String?
     var source : String?
     var text : String?
-    var id : Int?
+    var mid : String?
     var user : WBUserItem?
     var pic_urls : [[String : String]]?
     var retweeted_status : WBStatusItem?
@@ -22,6 +22,7 @@ class WBStatusItem: NSObject {
     init(dict : [String : Any]) {
         super.init()
         setValuesForKeys(dict)
+        
         if let userDict = dict["user"] as? [String : Any] {
             user = WBUserItem(dict: userDict)
         }
