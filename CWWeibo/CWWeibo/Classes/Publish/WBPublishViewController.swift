@@ -70,7 +70,7 @@ extension WBPublishViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(note:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(addPicture(note:)), name: PicturePickerAddPhotoNotification, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(removePicture(note:)), name: PicturePickerRemovePhotoNotification, object: nil)
     }
 }
 
@@ -158,7 +158,17 @@ extension WBPublishViewController {
         } else {
             handleStatus(status: libraryStatus)
         }
-        
+    }
+    
+    @objc fileprivate func removePicture(note : Notification) {
+        guard let image = note.userInfo?["image"] as? UIImage else {
+            return
+        }
+        guard let index = images.index(of: image) else {
+            return
+        }
+        images.remove(at: index)
+        picturePickerView.images = images
     }
     
     private func handleStatus(status : PHAuthorizationStatus) {

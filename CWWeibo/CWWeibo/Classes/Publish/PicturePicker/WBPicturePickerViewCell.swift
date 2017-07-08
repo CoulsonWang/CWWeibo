@@ -11,19 +11,29 @@ import UIKit
 class WBPicturePickerViewCell: UICollectionViewCell {
     
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var removeButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     
     var image : UIImage? {
         didSet {
             if image != nil {
-                addButton.setBackgroundImage(image, for: .normal)
+                imageView.isHidden = false
+                imageView.image = image
                 addButton.isUserInteractionEnabled = false
+                removeButton.isHidden = false
             } else {
-                addButton.setBackgroundImage(#imageLiteral(resourceName: "compose_pic_add"), for: .normal)
-                addButton.setBackgroundImage(#imageLiteral(resourceName: "compose_pic_add_highlighted"), for: .highlighted)
+                imageView.isHidden = true
                 addButton.isUserInteractionEnabled = true
+                removeButton.isHidden = true
             }
         }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        
     }
     
 
@@ -34,6 +44,7 @@ class WBPicturePickerViewCell: UICollectionViewCell {
     }
 
     @IBAction func deleteButtonClick(_ sender: UIButton) {
+        NotificationCenter.default.post(name: PicturePickerRemovePhotoNotification, object: self, userInfo: ["image" : imageView.image!])
     }
 
 }

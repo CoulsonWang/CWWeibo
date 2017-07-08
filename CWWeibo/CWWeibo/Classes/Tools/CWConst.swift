@@ -17,4 +17,6 @@ let grant_type = "authorization_code"
 
 //通知常量
 let PicturePickerAddPhotoNotification = Notification.Name("PicturePickerAddPhotoNotification")
+
+let PicturePickerRemovePhotoNotification = Notification.Name("PicturePickerRemovePhotoNotification")
 		
