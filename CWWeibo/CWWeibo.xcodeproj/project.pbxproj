@@ -12,6 +12,9 @@
 		B94135811F10C7B6002BCCC9 /* WBPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941357F1F10C7B6002BCCC9 /* WBPublishViewController.xib */; };
 		B94135831F10C962002BCCC9 /* WBPublishTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94135821F10C962002BCCC9 /* WBPublishTitleView.swift */; };
 		B94135851F10CEE0002BCCC9 /* WBPublishTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94135841F10CEE0002BCCC9 /* WBPublishTextView.swift */; };
+		B94135881F1100C4002BCCC9 /* WBPicturePickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94135871F1100C4002BCCC9 /* WBPicturePickerCollectionView.swift */; };
+		B941358B1F110437002BCCC9 /* WBPicturePickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94135891F110437002BCCC9 /* WBPicturePickerViewCell.swift */; };
+		B941358C1F110437002BCCC9 /* WBPicturePickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941358A1F110437002BCCC9 /* WBPicturePickerViewCell.xib */; };
 		B9A5E42B1F0CBBFF00DB9401 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42A1F0CBBFF00DB9401 /* UIButton-Extension.swift */; };
 		B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */; };
 		B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */; };
@@ -64,6 +67,9 @@
 		B941357F1F10C7B6002BCCC9 /* WBPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBPublishViewController.xib; sourceTree = "<group>"; };
 		B94135821F10C962002BCCC9 /* WBPublishTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPublishTitleView.swift; sourceTree = "<group>"; };
 		B94135841F10CEE0002BCCC9 /* WBPublishTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPublishTextView.swift; sourceTree = "<group>"; };
+		B94135871F1100C4002BCCC9 /* WBPicturePickerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPicturePickerCollectionView.swift; sourceTree = "<group>"; };
+		B94135891F110437002BCCC9 /* WBPicturePickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPicturePickerViewCell.swift; sourceTree = "<group>"; };
+		B941358A1F110437002BCCC9 /* WBPicturePickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBPicturePickerViewCell.xib; sourceTree = "<group>"; };
 		B9A5E42A1F0CBBFF00DB9401 /* UIButton-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBBaseTableViewController.swift; sourceTree = "<group>"; };
 		B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
@@ -139,6 +145,16 @@
 				ACD7DE1266880AFA2568E511 /* Pods_CWWeibo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B94135861F1100A8002BCCC9 /* PicturePicker */ = {
+			isa = PBXGroup;
+			children = (
+				B94135871F1100C4002BCCC9 /* WBPicturePickerCollectionView.swift */,
+				B94135891F110437002BCCC9 /* WBPicturePickerViewCell.swift */,
+				B941358A1F110437002BCCC9 /* WBPicturePickerViewCell.xib */,
+			);
+			path = PicturePicker;
 			sourceTree = "<group>";
 		};
 		B9A5E4281F0CBBC000DB9401 /* Tools */ = {
@@ -283,6 +299,7 @@
 		B9C5C36D1F0CAF5C00878125 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
+				B94135861F1100A8002BCCC9 /* PicturePicker */,
 				B9C5C3701F0CB01200878125 /* Publish.storyboard */,
 				B941357E1F10C7B6002BCCC9 /* WBPublishViewController.swift */,
 				B941357F1F10C7B6002BCCC9 /* WBPublishViewController.xib */,
@@ -408,6 +425,7 @@
 			files = (
 				B9F945BA1F0E7D86001370FE /* WBStatusTableViewCell.xib in Resources */,
 				B9F945CA1F0FC813001370FE /* WBPictureCollectionViewCell.xib in Resources */,
+				B941358C1F110437002BCCC9 /* WBPicturePickerViewCell.xib in Resources */,
 				B9C5C3491F0BDD1500878125 /* LaunchScreen.storyboard in Resources */,
 				B9C5C3811F0CB30200878125 /* Message.storyboard in Resources */,
 				B9C5C3461F0BDD1500878125 /* Assets.xcassets in Resources */,
@@ -496,6 +514,7 @@
 				B9A5E43F1F0D135F00DB9401 /* WBPresentationController.swift in Sources */,
 				B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */,
 				B94135851F10CEE0002BCCC9 /* WBPublishTextView.swift in Sources */,
+				B941358B1F110437002BCCC9 /* WBPicturePickerViewCell.swift in Sources */,
 				B9F945A91F0E0706001370FE /* CWConst.swift in Sources */,
 				B9A5E4361F0CEDD400DB9401 /* WBNavigationTitleButton.swift in Sources */,
 				B94135801F10C7B6002BCCC9 /* WBPublishViewController.swift in Sources */,
@@ -504,6 +523,7 @@
 				B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */,
 				B9C5C3791F0CB24300878125 /* WBDiscoverTableViewController.swift in Sources */,
 				B9F945C61F0F889B001370FE /* WBStatusPictureCollectionView.swift in Sources */,
+				B94135881F1100C4002BCCC9 /* WBPicturePickerCollectionView.swift in Sources */,
 				B9F945A61F0E03A0001370FE /* WBAuthorizeViewController.swift in Sources */,
 				B9F945B51F0E78CF001370FE /* WBStatusItem.swift in Sources */,
 				B9F945AD1F0E4462001370FE /* WBUserAccountViewModel.swift in Sources */,

@@ -12,6 +12,7 @@ class WBPublishViewController: UIViewController {
 
     @IBOutlet weak var textView: WBPublishTextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
     fileprivate lazy var coverView : UIView = {
         let view = UIView(frame: UIScreen.main.bounds)
@@ -56,6 +57,17 @@ extension WBPublishViewController {
 
 // MARK:- 监听事件
 extension WBPublishViewController {
+    @IBAction func pickPictureButtonClick(_ sender: UIButton) {
+        textView.resignFirstResponder()
+        collectionViewHeightConstraint.constant = UIScreen.main.bounds.height * 0.64
+        UIView.animate(withDuration: 0.25) { 
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction func expressionButtonClick(_ sender: UIButton) {
+    }
+    
     @objc fileprivate func cancelPublish() {
         textView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
@@ -82,6 +94,8 @@ extension WBPublishViewController {
     @objc fileprivate func tempViewDidBeenClick() {
         textView.resignFirstResponder()
     }
+    
+    
 }
 
 // MARK:- textView代理方法
@@ -96,7 +110,7 @@ extension WBPublishViewController : UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        view.addSubview(coverView)
+        textView.addSubview(coverView)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

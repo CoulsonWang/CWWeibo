@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WBPublishViewController" customModule="CWWeibo" customModuleProvider="target">
             <connections>
                 <outlet property="bottomConstraint" destination="pPa-uW-OzL" id="8rY-d9-y4c"/>
+                <outlet property="collectionViewHeightConstraint" destination="Z1G-vs-OU8" id="Ut1-Zq-GwV"/>
                 <outlet property="textView" destination="FFv-XT-obq" id="KMO-Yv-6Ca"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,6 +27,19 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6wj-Kf-Bir" customClass="WBPicturePickerCollectionView" customModule="CWWeibo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="736" width="414" height="0.0"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="Z1G-vs-OU8"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GTU-we-6FB">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lx8-md-4x1">
                     <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                     <constraints>
@@ -39,6 +53,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_toolbar_picture"/>
                                 <state key="highlighted" image="compose_toolbar_picture_highlighted"/>
+                                <connections>
+                                    <action selector="pickPictureButtonClick:" destination="-1" eventType="touchUpInside" id="R5S-If-44a"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="nAZ-Wf-C6G"/>
@@ -66,6 +83,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_emoticonbutton_background"/>
                                 <state key="highlighted" image="compose_emoticonbutton_background_highlighted"/>
+                                <connections>
+                                    <action selector="expressionButtonClick:" destination="-1" eventType="touchUpInside" id="13S-bx-S8z"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="6WI-4u-aag"/>
@@ -83,6 +103,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="6wj-Kf-Bir" secondAttribute="bottom" id="77l-T9-fVV"/>
+                <constraint firstItem="6wj-Kf-Bir" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7va-zT-oiQ"/>
+                <constraint firstAttribute="trailing" secondItem="6wj-Kf-Bir" secondAttribute="trailing" id="K52-S1-n84"/>
                 <constraint firstItem="FFv-XT-obq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VHd-yl-Gbm"/>
                 <constraint firstAttribute="trailing" secondItem="lx8-md-4x1" secondAttribute="trailing" id="bh9-Wm-AfD"/>
                 <constraint firstAttribute="bottom" secondItem="FFv-XT-obq" secondAttribute="bottom" id="fdJ-Dg-z3V"/>
