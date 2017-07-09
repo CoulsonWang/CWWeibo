@@ -89,3 +89,15 @@ extension CWNetworkTool {
         
     }
 }
+
+// MARK:- 发布微博
+extension CWNetworkTool {
+    func postStatus(statusText : String, isSuccess : (_ isSuccess : Bool) -> ()) -> Void {
+        let urlString = "https://api.weibo.com/2/statuses/update.json"
+        
+        let parameters = ["access_token": (WBUserAccountViewModel.sharedInstance.account?.access_token)!, "status": statusText]
+        
+        request(.post, urlString: urlString, parameters: parameters) { (result, error) in
+        }
+    }
+}

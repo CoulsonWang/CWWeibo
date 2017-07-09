@@ -18,21 +18,17 @@ class WBPublishViewController: UIViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
-    fileprivate lazy var coverView : UIView = {
-        let view = UIView(frame: UIScreen.main.bounds)
-        view.backgroundColor = UIColor.clear
-        
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tempViewDidBeenClick)))
-        
-        return view
-    }()
     fileprivate lazy var images : [UIImage] = [UIImage]()
-    lazy var pickerVC : UIImagePickerController = {
+    fileprivate lazy var pickerVC : UIImagePickerController = {
         let pickVC = UIImagePickerController()
         pickVC.sourceType = .photoLibrary
         pickVC.delegate = self
         return pickVC
     }()
+    fileprivate lazy var emoticonVC : EmoticonKeyboardController = EmoticonKeyboardController { [weak self] (emoticon) in
+        self?.textView.insertEmoticon(emoticon)
+        self?.textViewDidChange(self!.textView)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,9 +81,9 @@ extension WBPublishViewController {
         }
     }
     
-    @IBAction func expressionButtonClick(_ sender: UIButton) {
+    @IBAction func emoticonButtonClick(_ sender: UIButton) {
         textView.resignFirstResponder()
-        textView.inputView = (textView.inputView != nil) ? nil : UIView()
+        textView.inputView = (textView.inputView != nil) ? nil : emoticonVC.view
         textView.becomeFirstResponder()
     }
     
@@ -97,7 +93,9 @@ extension WBPublishViewController {
     }
     
     @objc fileprivate func sendPublish() {
-        
+        textView.resignFirstResponder()
+        SVProgressHUD.showError(withStatus: "暂时发不了，再见！")
+        dismiss(animated: true, completion: nil)
     }
     
     @objc fileprivate func keyboardWillChangeFrame(note : Notification) {
@@ -113,12 +111,7 @@ extension WBPublishViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
-    @objc fileprivate func tempViewDidBeenClick() {
-        textView.resignFirstResponder()
-    }
-    
-    
+
 }
 
 // MARK:- textView代理方法
@@ -133,8 +126,6 @@ extension WBPublishViewController : UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.addSubview(coverView)
-        
         //收起图片选择器
         picturePickerView.isPicking = false
         collectionViewHeightConstraint.constant = 0
@@ -143,9 +134,6 @@ extension WBPublishViewController : UITextViewDelegate {
         }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        coverView.removeFromSuperview()
-    }
 }
 
 // MARK:- 图片选取相关

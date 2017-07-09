@@ -85,7 +85,7 @@
                                 <state key="normal" image="compose_emoticonbutton_background"/>
                                 <state key="highlighted" image="compose_emoticonbutton_background_highlighted"/>
                                 <connections>
-                                    <action selector="expressionButtonClick:" destination="-1" eventType="touchUpInside" id="13S-bx-S8z"/>
+                                    <action selector="emoticonButtonClick:" destination="-1" eventType="touchUpInside" id="ODy-Eo-Qfy"/>
                                 </connections>
                             </button>
                         </barButtonItem>

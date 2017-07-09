@@ -9,7 +9,7 @@
 import UIKit
 
 extension UITextView {
-    func insertEmoticon(emoticon : Emoticon) -> Void {
+    func insertEmoticon(_ emoticon : Emoticon) -> Void {
         if emoticon.isEmpty {
             return
         }
