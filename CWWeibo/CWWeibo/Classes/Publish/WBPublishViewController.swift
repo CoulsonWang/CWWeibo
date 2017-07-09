@@ -86,6 +86,9 @@ extension WBPublishViewController {
     }
     
     @IBAction func expressionButtonClick(_ sender: UIButton) {
+        textView.resignFirstResponder()
+        textView.inputView = (textView.inputView != nil) ? nil : UIView()
+        textView.becomeFirstResponder()
     }
     
     @objc fileprivate func cancelPublish() {
