@@ -16,6 +16,7 @@ private let tipsLabelHeight : CGFloat = 30
 class WBHomeTableViewController: WBBaseTableViewController {
     
     // MARK:- 懒加载
+    fileprivate lazy var photoBrowserVC : WBPhotoBrowserViewController = WBPhotoBrowserViewController()
     fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
     fileprivate lazy var popoverAnimator : WBPopoverAnimator = WBPopoverAnimator()
     fileprivate lazy var statusViewModels : [WBStatusViewModel] = [WBStatusViewModel]()
@@ -39,6 +40,8 @@ class WBHomeTableViewController: WBBaseTableViewController {
         //设置刷新提示
         setupTipsLabel()
         
+        setupNotification()
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
@@ -52,7 +55,7 @@ class WBHomeTableViewController: WBBaseTableViewController {
 }
 
 
-// MARK: - 初始化界面
+// MARK: - 初始化
 extension WBHomeTableViewController {
     
     fileprivate func setupNavigationBar() {
@@ -90,6 +93,10 @@ extension WBHomeTableViewController {
         tipsLabel.textAlignment = .center
         tipsLabel.alpha = 0.0
     }
+    
+    fileprivate func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showPhotoBrowser(note:)), name: ShowPhotoBrowserNotification, object: nil)
+    }
 }
 
 // MARK:- 监听事件
@@ -112,6 +119,17 @@ extension WBHomeTableViewController {
         popVc.transitioningDelegate = popoverAnimator
         
         present(popVc, animated: true, completion: nil)
+    }
+    
+    @objc fileprivate func showPhotoBrowser(note: Notification) {
+        let userInfo = note.userInfo!
+        let indexPath = userInfo[ShowPhotoBrowserNoteIndexpathKey] as! IndexPath
+        let picURLs = userInfo[ShowPhotoBrowserNoteURLsKey] as! [URL]
+        
+        photoBrowserVC.indexPath = indexPath
+        photoBrowserVC.picURLs = picURLs
+        
+        present(photoBrowserVC, animated: true, completion: nil)
     }
 }
 

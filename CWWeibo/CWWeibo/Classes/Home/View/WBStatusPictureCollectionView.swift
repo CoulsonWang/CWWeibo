@@ -11,6 +11,7 @@ import SDWebImage
 
 private let cellID = "WBStatusPictureCollectionView"
 
+
 class WBStatusPictureCollectionView: UICollectionView {
     
     var pictureURLs : [URL] = [URL]() {
@@ -23,6 +24,7 @@ class WBStatusPictureCollectionView: UICollectionView {
         super.awakeFromNib()
         self.isScrollEnabled = false
         dataSource = self
+        delegate = self
         register(UINib.init(nibName: "WBPictureCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellID)
     }
 }
@@ -42,3 +44,9 @@ extension WBStatusPictureCollectionView : UICollectionViewDataSource {
     }
 }
 
+extension WBStatusPictureCollectionView : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let userInfo : [String : Any] = [ShowPhotoBrowserNoteIndexpathKey : indexPath, ShowPhotoBrowserNoteURLsKey : pictureURLs]
+        NotificationCenter.default.post(name: ShowPhotoBrowserNotification, object: nil, userInfo: userInfo)
+    }
+}
