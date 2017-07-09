@@ -21,8 +21,10 @@ class WBPhotoBrowserCollectionViewCell: UICollectionViewCell {
             imageView.frame = caclulateFrame(image: image)
             progressView.isHidden = false
             imageView.sd_setImage(with: getBigPictureURL(smallURL: picURL), placeholderImage: image, options: [], progress: { (current, total, _) in
-                let progress : CGFloat = CGFloat(current)/CGFloat(total)
-                self.progressView.progress = progress
+                DispatchQueue.main.async {
+                    let progress : CGFloat = CGFloat(current)/CGFloat(total)
+                    self.progressView.progress = progress
+                }
             }) { (_, _, _, _) in
                 self.progressView.isHidden = true
             }
@@ -57,7 +59,7 @@ extension WBPhotoBrowserCollectionViewCell {
         contentView.addSubview(progressView)
         
         scrollView.frame = contentView.bounds
-        progressView.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        progressView.bounds = CGRect(x: 0, y: 0, width: 60, height: 60)
         progressView.center = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.5)
         
         progressView.isHidden = true

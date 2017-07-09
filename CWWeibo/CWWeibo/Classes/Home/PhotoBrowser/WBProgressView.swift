@@ -28,7 +28,7 @@ class WBProgressView: UIView {
         let path = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         path.addLine(to: arcCenter)
         
-        UIColor(white: 1, alpha: 1).setFill()
+        UIColor(white: 0.8, alpha: 0.6).setFill()
         
         path.fill()
         
