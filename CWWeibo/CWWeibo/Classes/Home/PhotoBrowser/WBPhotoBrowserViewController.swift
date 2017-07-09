@@ -9,12 +9,15 @@
 import UIKit
 import SnapKit
 
+private let PhotoBrowserCellID = "PhotoBrowserCellID"
+
+
 class WBPhotoBrowserViewController: UIViewController {
     
     var indexPath : IndexPath?
     var picURLs : [URL]?
     
-    lazy var collectionView : UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    lazy var collectionView : UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: PhotoBrowserCollectionViewLayout())
     lazy var closeButton : UIButton = UIButton(backgroundColor: UIColor.lightGray, fontSize: 14, title: "关闭")
     lazy var saveButton : UIButton = UIButton(backgroundColor: UIColor.lightGray, fontSize: 14, title: "保存")
 
@@ -45,5 +48,49 @@ extension WBPhotoBrowserViewController {
             make.bottom.equalTo(closeButton)
             make.size.equalTo(closeButton)
         }
+        
+        collectionView.register(WBPhotoBrowserCollectionViewCell.self, forCellWithReuseIdentifier: PhotoBrowserCellID)
+        collectionView.dataSource = self
+        
+        closeButton.addTarget(self, action: #selector(closeButtonClick), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(saveButtonClick), for: .touchUpInside)
+    }
+}
+
+extension WBPhotoBrowserViewController {
+    @objc fileprivate func closeButtonClick() {
+        dismiss(animated: true, completion: nil)
+    }
+    @objc fileprivate func saveButtonClick() {
+        
+    }
+}
+
+extension WBPhotoBrowserViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (picURLs?.count)!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoBrowserCellID, for: indexPath) as! WBPhotoBrowserCollectionViewCell
+        
+        cell.picURL = picURLs?[indexPath.item]
+        
+        return cell
+    }
+}
+
+class PhotoBrowserCollectionViewLayout: UICollectionViewFlowLayout {
+    override func prepare() {
+        super.prepare()
+        
+        itemSize = collectionView!.bounds.size
+        scrollDirection = .horizontal
+        minimumLineSpacing = 0
+        minimumInteritemSpacing = 0
+        
+        collectionView?.isPagingEnabled = true
+        collectionView?.showsVerticalScrollIndicator = false
+        collectionView?.showsHorizontalScrollIndicator = false
     }
 }

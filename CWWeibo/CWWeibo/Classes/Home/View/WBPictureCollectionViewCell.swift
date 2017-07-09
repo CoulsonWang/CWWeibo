@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import FLAnimatedImage
 
 class WBPictureCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: FLAnimatedImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

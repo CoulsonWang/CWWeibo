@@ -9,7 +9,7 @@ target 'CWWeibo' do
 end
 
 pod 'AFNetworking'
-pod 'SDWebImage'
+pod 'SDWebImage/GIF'
 pod 'SVProgressHUD'
 pod 'SnapKit'
 pod 'MJRefresh'

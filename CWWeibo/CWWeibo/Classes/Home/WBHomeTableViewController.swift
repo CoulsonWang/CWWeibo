@@ -16,7 +16,6 @@ private let tipsLabelHeight : CGFloat = 30
 class WBHomeTableViewController: WBBaseTableViewController {
     
     // MARK:- 懒加载
-    fileprivate lazy var photoBrowserVC : WBPhotoBrowserViewController = WBPhotoBrowserViewController()
     fileprivate lazy var titleBtn : WBNavigationTitleButton = WBNavigationTitleButton()
     fileprivate lazy var popoverAnimator : WBPopoverAnimator = WBPopoverAnimator()
     fileprivate lazy var statusViewModels : [WBStatusViewModel] = [WBStatusViewModel]()
@@ -126,6 +125,7 @@ extension WBHomeTableViewController {
         let indexPath = userInfo[ShowPhotoBrowserNoteIndexpathKey] as! IndexPath
         let picURLs = userInfo[ShowPhotoBrowserNoteURLsKey] as! [URL]
         
+        let photoBrowserVC = WBPhotoBrowserViewController()
         photoBrowserVC.indexPath = indexPath
         photoBrowserVC.picURLs = picURLs
         
@@ -175,18 +175,19 @@ extension WBHomeTableViewController {
         }
     }
     
-    /// 缓存图片，用于计算单图微博的图片尺寸
+    /// 缓存图片
     ///
     /// - Parameter viewModels: 需要缓存的模型数组
     private func cacheImages(viewModels : [WBStatusViewModel]) {
         let group = DispatchGroup.init()
         for viewModel in viewModels {
-            guard viewModel.pictureURLs.count == 1 else { continue }
-            let picURL = viewModel.pictureURLs.last
-            group.enter()
-            SDWebImageManager.shared().loadImage(with: picURL, options: [], progress: nil, completed: { (_, _, _, _, _, _) in
-                group.leave()
-            })
+            for picURL in viewModel.pictureURLs {
+                group.enter()
+                SDWebImageManager.shared().loadImage(with: picURL, options: [], progress: nil, completed: { (_, _, _, _, _, _) in
+                    group.leave()
+                })
+            }
+
         }
         group.notify(queue: .main) { 
             self.tableView.reloadData()
