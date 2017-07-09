@@ -94,8 +94,7 @@ extension WBPublishViewController {
     
     @objc fileprivate func sendPublish() {
         textView.resignFirstResponder()
-        SVProgressHUD.showError(withStatus: "暂时发不了，再见！")
-        dismiss(animated: true, completion: nil)
+        SVProgressHUD.showError(withStatus: "发不了,没权限！")
     }
     
     @objc fileprivate func keyboardWillChangeFrame(note : Notification) {

@@ -47,7 +47,7 @@ class WBStatusTableViewCell: UITableViewCell {
             vertifyImageView.image = viewModel.vipLevelImage
             sourceLabel.text = viewModel.sourceText
             vipLevelView.image = viewModel.vipLevelImage
-            contentTextLabel.text = viewModel.status?.text
+            contentTextLabel.attributedText = CWStringReplacer.sharedInstance.replaceEmoticons(context: viewModel.status?.text, font: contentTextLabel.font)
             //昵称颜色
             nameLabel.textColor = viewModel.vipLevelImage == nil ? UIColor.black : UIColor.orange
             //转发正文
