@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SVProgressHUD
 
 class WBPhotoBrowserCollectionViewCell: UICollectionViewCell {
     var picURL : URL? {
@@ -18,10 +19,12 @@ class WBPhotoBrowserCollectionViewCell: UICollectionViewCell {
                 return
             }
             imageView.frame = caclulateFrame(image: image)
+            progressView.isHidden = false
             imageView.sd_setImage(with: getBigPictureURL(smallURL: picURL), placeholderImage: image, options: [], progress: { (current, total, _) in
-                
+                let progress : CGFloat = CGFloat(current)/CGFloat(total)
+                self.progressView.progress = progress
             }) { (_, _, _, _) in
-                
+                self.progressView.isHidden = true
             }
             
             scrollView.contentSize = CGSize(width: 0, height: image.size.height)
@@ -30,11 +33,14 @@ class WBPhotoBrowserCollectionViewCell: UICollectionViewCell {
     
     lazy var scrollView : UIScrollView = UIScrollView()
     lazy var imageView : FLAnimatedImageView = FLAnimatedImageView()
+    lazy var progressView : WBProgressView = WBProgressView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupUIs()
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,8 +54,14 @@ extension WBPhotoBrowserCollectionViewCell {
     func setupUIs() {
         contentView.addSubview(scrollView)
         scrollView.addSubview(imageView)
+        contentView.addSubview(progressView)
         
         scrollView.frame = contentView.bounds
+        progressView.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        progressView.center = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.5)
+        
+        progressView.isHidden = true
+        progressView.backgroundColor = UIColor.clear
     }
     
     func caclulateFrame(image: UIImage) -> CGRect {

@@ -129,7 +129,7 @@ extension WBHomeTableViewController {
         photoBrowserVC.indexPath = indexPath
         photoBrowserVC.picURLs = picURLs
         
-        present(photoBrowserVC, animated: true, completion: nil)
+        present(photoBrowserVC, animated: false, completion: nil)
     }
 }
 

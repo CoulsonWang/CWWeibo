@@ -25,6 +25,8 @@ class WBPhotoBrowserViewController: UIViewController {
         super.viewDidLoad()
 
         setupUIs()
+        
+        collectionView.scrollToItem(at: indexPath!, at: .left, animated: false)
     }
 
 
