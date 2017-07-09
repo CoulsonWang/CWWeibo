@@ -15,6 +15,8 @@
 		B94135881F1100C4002BCCC9 /* WBPicturePickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94135871F1100C4002BCCC9 /* WBPicturePickerCollectionView.swift */; };
 		B941358B1F110437002BCCC9 /* WBPicturePickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94135891F110437002BCCC9 /* WBPicturePickerViewCell.swift */; };
 		B941358C1F110437002BCCC9 /* WBPicturePickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B941358A1F110437002BCCC9 /* WBPicturePickerViewCell.xib */; };
+		B98067531F125E6C00D1D2BB /* HYLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98067521F125E6C00D1D2BB /* HYLabel.swift */; };
+		B98067561F12644A00D1D2BB /* WBPhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98067551F12644A00D1D2BB /* WBPhotoBrowserViewController.swift */; };
 		B9A5E42E1F0CCB4900DB9401 /* WBBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */; };
 		B9A5E4301F0CCC9100DB9401 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */; };
 		B9A5E4321F0CCC9D00DB9401 /* WBVisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A5E4311F0CCC9D00DB9401 /* WBVisitorView.xib */; };
@@ -79,6 +81,8 @@
 		B94135871F1100C4002BCCC9 /* WBPicturePickerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPicturePickerCollectionView.swift; sourceTree = "<group>"; };
 		B94135891F110437002BCCC9 /* WBPicturePickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPicturePickerViewCell.swift; sourceTree = "<group>"; };
 		B941358A1F110437002BCCC9 /* WBPicturePickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBPicturePickerViewCell.xib; sourceTree = "<group>"; };
+		B98067521F125E6C00D1D2BB /* HYLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYLabel.swift; sourceTree = "<group>"; };
+		B98067551F12644A00D1D2BB /* WBPhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		B9A5E42D1F0CCB4900DB9401 /* WBBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBBaseTableViewController.swift; sourceTree = "<group>"; };
 		B9A5E42F1F0CCC9100DB9401 /* WBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
 		B9A5E4311F0CCC9D00DB9401 /* WBVisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBVisitorView.xib; sourceTree = "<group>"; };
@@ -175,6 +179,14 @@
 			path = PicturePicker;
 			sourceTree = "<group>";
 		};
+		B98067541F12643400D1D2BB /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				B98067551F12644A00D1D2BB /* WBPhotoBrowserViewController.swift */,
+			);
+			path = PhotoBrowser;
+			sourceTree = "<group>";
+		};
 		B9A5E42C1F0CCB3A00DB9401 /* Visitor */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,7 +248,7 @@
 				B9C5C3651F0CAD7D00878125 /* Discover */,
 				B9C5C36A1F0CAD7D00878125 /* Profile */,
 				B9C5C36D1F0CAF5C00878125 /* Publish */,
-				B9CB7FE91F124D8E0028E7D1 /* Tools */,
+				B9CB7FE91F124D8E0028E7D1 /* Other */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -253,6 +265,7 @@
 		B9C5C3661F0CAD7D00878125 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B98067541F12643400D1D2BB /* PhotoBrowser */,
 				B9F945B31F0E78BF001370FE /* Model */,
 				B9F945B61F0E7D5D001370FE /* View */,
 				B9A5E4371F0CF26100DB9401 /* UIPopover */,
@@ -305,7 +318,7 @@
 			path = Publish;
 			sourceTree = "<group>";
 		};
-		B9CB7FE91F124D8E0028E7D1 /* Tools */ = {
+		B9CB7FE91F124D8E0028E7D1 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				B9CB7FEA1F124D8E0028E7D1 /* Category */,
@@ -314,6 +327,7 @@
 				B9CB7FFE1F124D8E0028E7D1 /* Tool */,
 				B9CB80001F124D8E0028E7D1 /* WBNavigationTitleButton.swift */,
 			);
+			name = Other;
 			path = Tools;
 			sourceTree = "<group>";
 		};
@@ -331,25 +345,10 @@
 		B9CB7FF01F124D8E0028E7D1 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				B9CB7FF11F124D8E0028E7D1 /* Classes */,
+				B98067521F125E6C00D1D2BB /* HYLabel.swift */,
 				B9CB7FF31F124D8E0028E7D1 /* Emoticon */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		B9CB7FF11F124D8E0028E7D1 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				B9CB7FF21F124D8E0028E7D1 /* Model */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		B9CB7FF21F124D8E0028E7D1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B9CB7FF31F124D8E0028E7D1 /* Emoticon */ = {
@@ -584,9 +583,11 @@
 				B9CB80091F124D8E0028E7D1 /* Emoticon.swift in Sources */,
 				B9CB80071F124D8E0028E7D1 /* EmoticonCell.swift in Sources */,
 				B9CB80021F124D8E0028E7D1 /* UIBarButtonItem-Extension.swift in Sources */,
+				B98067561F12644A00D1D2BB /* WBPhotoBrowserViewController.swift in Sources */,
 				B9CB800A1F124D8E0028E7D1 /* EmoticonManager.swift in Sources */,
 				B9CB800C1F124D8E0028E7D1 /* UITextView-Extension.swift in Sources */,
 				B9CB80081F124D8E0028E7D1 /* EmoticonKeyboardController.swift in Sources */,
+				B98067531F125E6C00D1D2BB /* HYLabel.swift in Sources */,
 				B9C5C3771F0CB23B00878125 /* WBMessageTableViewController.swift in Sources */,
 				B9F945B11F0E4ADB001370FE /* WBWelcomeViewController.swift in Sources */,
 				B9CB800F1F124D8E0028E7D1 /* WBNavigationTitleButton.swift in Sources */,

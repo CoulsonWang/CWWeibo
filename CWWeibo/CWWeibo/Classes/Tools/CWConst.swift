@@ -20,3 +20,9 @@ let PicturePickerAddPhotoNotification = Notification.Name("PicturePickerAddPhoto
 
 let PicturePickerRemovePhotoNotification = Notification.Name("PicturePickerRemovePhotoNotification")
 		
+let ShowPhotoBrowserNotification = Notification.Name("ShowPhotoBrowserNotification")
+
+let ShowPhotoBrowserNoteIndexpathKey = "ShowPhotoBrowserIndexpathNoteKey"
+let ShowPhotoBrowserNoteURLsKey = "ShowPhotoBrowserNoteURLsKey"
+
+		

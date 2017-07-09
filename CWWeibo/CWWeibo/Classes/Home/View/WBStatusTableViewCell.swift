@@ -30,8 +30,8 @@ class WBStatusTableViewCell: UITableViewCell {
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var vertifyImageView: UIImageView!
     @IBOutlet weak var vipLevelView: UIImageView!
-    @IBOutlet weak var contentTextLabel: UILabel!
-    @IBOutlet weak var retweetContentLabel: UILabel!
+    @IBOutlet weak var contentTextLabel: HYLabel!
+    @IBOutlet weak var retweetContentLabel: HYLabel!
     
     @IBOutlet weak var pictureCollectionView: WBStatusPictureCollectionView!
     @IBOutlet weak var retweetBackgroundView: UIView!
@@ -47,13 +47,17 @@ class WBStatusTableViewCell: UITableViewCell {
             vertifyImageView.image = viewModel.vipLevelImage
             sourceLabel.text = viewModel.sourceText
             vipLevelView.image = viewModel.vipLevelImage
+            //正文
             contentTextLabel.attributedText = CWStringReplacer.sharedInstance.replaceEmoticons(context: viewModel.status?.text, font: contentTextLabel.font)
             //昵称颜色
             nameLabel.textColor = viewModel.vipLevelImage == nil ? UIColor.black : UIColor.orange
             //转发正文
             if viewModel.status?.retweeted_status != nil {
                 if let screenName = viewModel.status?.retweeted_status?.user?.screen_name, let retweetedText = viewModel.status?.retweeted_status?.text {
-                    retweetContentLabel.text = "@\(screenName): " + retweetedText
+//                    retweetContentLabel.attributedText = "@\(screenName): " + retweetedText
+                    let tempStr = "@\(screenName): " + retweetedText
+                    retweetContentLabel.attributedText = CWStringReplacer.sharedInstance.replaceEmoticons(context: tempStr, font: retweetContentLabel.font)
+
                 }
                 retweetBackgroundView.isHidden = false
                 retweetContextBottomSpaceConstraint.constant = marginOfRetweetBottom
@@ -79,6 +83,8 @@ class WBStatusTableViewCell: UITableViewCell {
         
         profileImageView.makeCircle()
         
+        contentTextLabel.matchTextColor = UIColor.blue
+        retweetContentLabel.matchTextColor = UIColor.blue
     }
 
     
