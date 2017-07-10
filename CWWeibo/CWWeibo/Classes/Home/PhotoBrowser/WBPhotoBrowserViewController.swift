@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import Photos
+import SVProgressHUD
 
 private let PhotoBrowserCellID = "PhotoBrowserCellID"
 
@@ -70,7 +72,32 @@ extension WBPhotoBrowserViewController {
         dismiss(animated: true, completion: nil)
     }
     @objc fileprivate func saveButtonClick() {
+        guard let cell = collectionView.visibleCells.first as? WBPhotoBrowserCollectionViewCell else {
+            return
+        }
+        guard let image = cell.imageView.image else { return }
         
+        SVProgressHUD.setMaximumDismissTimeInterval(2)
+        
+        PHPhotoLibrary.requestAuthorization { (status) in
+            if status == PHAuthorizationStatus.authorized {
+                self.savePicture(image: image)
+            } else {
+                SVProgressHUD.showError(withStatus: "没有权限!")
+            }
+        }
+        
+    }
+    
+    private func savePicture(image : UIImage) -> Void {
+        do {
+            try PHPhotoLibrary.shared().performChangesAndWait {
+                PHAssetChangeRequest.creationRequestForAsset(from: image)
+                SVProgressHUD.showSuccess(withStatus: "保存成功")
+            }
+        } catch {
+            SVProgressHUD.showError(withStatus: "保存失败")
+        }
     }
     
     @objc fileprivate func tap() {
