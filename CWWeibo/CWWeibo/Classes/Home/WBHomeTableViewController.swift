@@ -135,6 +135,7 @@ extension WBHomeTableViewController {
         photoBrowserVC.modalPresentationStyle = .custom
         photoBrowserVC.transitioningDelegate = photoBrowserAnimator
         photoBrowserAnimator.presentDelegate = objcet
+        photoBrowserAnimator.dismissDelegate = photoBrowserVC
         photoBrowserAnimator.indexPath = indexPath
         
         present(photoBrowserVC, animated: true, completion: nil)

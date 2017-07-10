@@ -15,6 +15,8 @@ class WBPhotoBrowserAnimator: NSObject {
     
     var indexPath : IndexPath?
     
+    var dismissDelegate : WBPhotoBrowserAnimatorDismissDelegate?
+    
 }
 
 protocol WBPhotoBrowserAnimatorPresentDelegate : NSObjectProtocol{
@@ -23,6 +25,12 @@ protocol WBPhotoBrowserAnimatorPresentDelegate : NSObjectProtocol{
     func endRect(indexPath : IndexPath) -> CGRect
     
     func imageView(indexPath : IndexPath) -> UIImageView
+}
+
+protocol WBPhotoBrowserAnimatorDismissDelegate : NSObjectProtocol {
+    func getTheIndexPath() -> IndexPath
+    
+    func imageView() -> UIImageView
 }
 
 extension WBPhotoBrowserAnimator : UIViewControllerTransitioningDelegate {
@@ -52,21 +60,21 @@ extension WBPhotoBrowserAnimator : UIViewControllerAnimatedTransitioning {
     
     private func animateForPrensent(_ transitionContext : UIViewControllerContextTransitioning) {
         
-        guard let presenteDelegate = presentDelegate, let indexpath = indexPath else { return }
+        guard let presentDelegate = presentDelegate, let indexPath = indexPath else { return }
         
         let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
         presentedView.isHidden = true
         transitionContext.containerView.addSubview(presentedView)
         
-        let imageView = presenteDelegate.imageView(indexPath: indexpath)
-        let startRect = presenteDelegate.startRect(indexPath: indexpath)
+        let imageView = presentDelegate.imageView(indexPath: indexPath)
+        let startRect = presentDelegate.startRect(indexPath: indexPath)
         transitionContext.containerView.addSubview(imageView)
         imageView.frame = startRect
         
         //定义动画
         transitionContext.containerView.backgroundColor = UIColor.black
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            imageView.frame = presenteDelegate.endRect(indexPath: indexpath)
+            imageView.frame = presentDelegate.endRect(indexPath: indexPath)
         }) { (_) in
             imageView.removeFromSuperview()
             presentedView.isHidden = false
@@ -75,19 +83,19 @@ extension WBPhotoBrowserAnimator : UIViewControllerAnimatedTransitioning {
         }
     }
     private func animateForDismiss(_ transitionContext : UIViewControllerContextTransitioning) {
-        guard let presenteDelegate = presentDelegate, let indexpath = indexPath else { return }
+        guard let dismissDelegate = dismissDelegate, let presentDelegate = presentDelegate else { return }
         
         let dismissView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
         dismissView.isHidden = true
         
-        let imageView = presenteDelegate.imageView(indexPath: indexpath)
-        let startRect = presenteDelegate.endRect(indexPath: indexpath)
+        let imageView = dismissDelegate.imageView()
         transitionContext.containerView.addSubview(imageView)
-        imageView.frame = startRect
+        let indexPath = dismissDelegate.getTheIndexPath()
+        
         
         //定义动画
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            imageView.frame = presenteDelegate.startRect(indexPath: indexpath)
+            imageView.frame = presentDelegate.startRect(indexPath: indexPath)
         }) { (_) in
             imageView.removeFromSuperview()
             transitionContext.completeTransition(true)

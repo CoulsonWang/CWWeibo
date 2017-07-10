@@ -115,6 +115,25 @@ extension WBPhotoBrowserViewController : UICollectionViewDataSource {
     }
 }
 
+// MARK:- 消失动画代理
+extension WBPhotoBrowserViewController : WBPhotoBrowserAnimatorDismissDelegate {
+    func getTheIndexPath() -> IndexPath {
+        let cell = collectionView.visibleCells.last!
+        return collectionView.indexPath(for: cell)!
+    }
+
+    func imageView() -> UIImageView {
+        let cell = collectionView.visibleCells.last as! WBPhotoBrowserCollectionViewCell
+        let imageView = UIImageView(frame: cell.imageView.frame)
+        imageView.image = cell.imageView.image
+        
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }
+}
+
 class PhotoBrowserCollectionViewLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
