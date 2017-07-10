@@ -28,7 +28,12 @@ class WBPhotoBrowserViewController: UIViewController {
         
         collectionView.scrollToItem(at: indexPath!, at: .left, animated: false)
     }
-
+    
+    override func loadView() {
+        super.loadView()
+        
+        view.bounds.size.width += 20
+    }
 
 }
 
@@ -53,6 +58,7 @@ extension WBPhotoBrowserViewController {
         
         collectionView.register(WBPhotoBrowserCollectionViewCell.self, forCellWithReuseIdentifier: PhotoBrowserCellID)
         collectionView.dataSource = self
+        collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
         
         closeButton.addTarget(self, action: #selector(closeButtonClick), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(saveButtonClick), for: .touchUpInside)
@@ -65,6 +71,10 @@ extension WBPhotoBrowserViewController {
     }
     @objc fileprivate func saveButtonClick() {
         
+    }
+    
+    @objc fileprivate func tap() {
+        dismiss(animated: false, completion: nil)
     }
 }
 

@@ -59,6 +59,7 @@ extension WBPhotoBrowserCollectionViewCell {
         contentView.addSubview(progressView)
         
         scrollView.frame = contentView.bounds
+        scrollView.frame.size.width -= 20
         progressView.bounds = CGRect(x: 0, y: 0, width: 60, height: 60)
         progressView.center = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.5)
         
