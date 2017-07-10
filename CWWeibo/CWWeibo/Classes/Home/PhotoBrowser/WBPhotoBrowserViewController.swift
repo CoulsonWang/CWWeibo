@@ -53,7 +53,7 @@ extension WBPhotoBrowserViewController {
             make.size.equalTo(CGSize(width: 100, height: 30))
         }
         saveButton.snp.makeConstraints { (make) in
-            make.right.equalTo(-20)
+            make.right.equalTo(-40)
             make.bottom.equalTo(closeButton)
             make.size.equalTo(closeButton)
         }

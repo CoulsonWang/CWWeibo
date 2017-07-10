@@ -122,6 +122,7 @@ extension WBHomeTableViewController {
     }
     
     @objc fileprivate func showPhotoBrowser(note: Notification) {
+        let objcet = note.object as! WBStatusPictureCollectionView
         let userInfo = note.userInfo!
         let indexPath = userInfo[ShowPhotoBrowserNoteIndexpathKey] as! IndexPath
         let picURLs = userInfo[ShowPhotoBrowserNoteURLsKey] as! [URL]
@@ -133,6 +134,8 @@ extension WBHomeTableViewController {
         //自定义转场
         photoBrowserVC.modalPresentationStyle = .custom
         photoBrowserVC.transitioningDelegate = photoBrowserAnimator
+        photoBrowserAnimator.presentDelegate = objcet
+        photoBrowserAnimator.indexPath = indexPath
         
         present(photoBrowserVC, animated: true, completion: nil)
     }

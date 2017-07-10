@@ -47,6 +47,31 @@ extension WBStatusPictureCollectionView : UICollectionViewDataSource {
 extension WBStatusPictureCollectionView : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let userInfo : [String : Any] = [ShowPhotoBrowserNoteIndexpathKey : indexPath, ShowPhotoBrowserNoteURLsKey : pictureURLs]
-        NotificationCenter.default.post(name: ShowPhotoBrowserNotification, object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(name: ShowPhotoBrowserNotification, object: self, userInfo: userInfo)
+    }
+}
+
+extension WBStatusPictureCollectionView : WBPhotoBrowserAnimatorPresentDelegate {
+    func startRect(indexPath: IndexPath) -> CGRect {
+        let cell = self.cellForItem(at: indexPath)!
+        
+        //获取cell相对于整个屏幕的frame
+        return self.convert(cell.frame, to: UIApplication.shared.keyWindow)
+    }
+    
+    func endRect(indexPath: IndexPath) -> CGRect {
+        let picURL = pictureURLs[indexPath.item]
+        let image = (SDWebImageManager.shared().imageCache?.imageFromCache(forKey: picURL.absoluteString))!
+        let endRect = image.caclulateFrameInFullScreenMode()
+        return endRect
+    }
+    
+    func imageView(indexPath: IndexPath) -> UIImageView {
+        let image = (SDWebImageManager.shared().imageCache?.imageFromCache(forKey: pictureURLs[indexPath.item].absoluteString))!
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
     }
 }

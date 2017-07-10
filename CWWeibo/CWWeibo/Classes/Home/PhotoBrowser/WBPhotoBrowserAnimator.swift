@@ -11,6 +11,18 @@ import UIKit
 class WBPhotoBrowserAnimator: NSObject {
     var isPresented : Bool = false
     
+    var presentDelegate : WBPhotoBrowserAnimatorPresentDelegate?
+    
+    var indexPath : IndexPath?
+    
+}
+
+protocol WBPhotoBrowserAnimatorPresentDelegate : NSObjectProtocol{
+    func startRect(indexPath : IndexPath) -> CGRect
+    
+    func endRect(indexPath : IndexPath) -> CGRect
+    
+    func imageView(indexPath : IndexPath) -> UIImageView
 }
 
 extension WBPhotoBrowserAnimator : UIViewControllerTransitioningDelegate {
@@ -27,7 +39,7 @@ extension WBPhotoBrowserAnimator : UIViewControllerTransitioningDelegate {
 
 extension WBPhotoBrowserAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.6
+        return 0.3
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -39,28 +51,45 @@ extension WBPhotoBrowserAnimator : UIViewControllerAnimatedTransitioning {
 }
     
     private func animateForPrensent(_ transitionContext : UIViewControllerContextTransitioning) {
-        let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
         
+        guard let presenteDelegate = presentDelegate, let indexpath = indexPath else { return }
+        
+        let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        presentedView.isHidden = true
         transitionContext.containerView.addSubview(presentedView)
         
+        let imageView = presenteDelegate.imageView(indexPath: indexpath)
+        let startRect = presenteDelegate.startRect(indexPath: indexpath)
+        transitionContext.containerView.addSubview(imageView)
+        imageView.frame = startRect
+        
         //定义动画
-        presentedView.alpha = 0.0
+        transitionContext.containerView.backgroundColor = UIColor.black
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            presentedView.alpha = 1.0
+            imageView.frame = presenteDelegate.endRect(indexPath: indexpath)
         }) { (_) in
+            imageView.removeFromSuperview()
+            presentedView.isHidden = false
+            transitionContext.containerView.backgroundColor = UIColor.clear
             transitionContext.completeTransition(true)
         }
     }
     private func animateForDismiss(_ transitionContext : UIViewControllerContextTransitioning) {
-        let dismissView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
+        guard let presenteDelegate = presentDelegate, let indexpath = indexPath else { return }
         
-        transitionContext.containerView.addSubview(dismissView)
+        let dismissView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
+        dismissView.isHidden = true
+        
+        let imageView = presenteDelegate.imageView(indexPath: indexpath)
+        let startRect = presenteDelegate.endRect(indexPath: indexpath)
+        transitionContext.containerView.addSubview(imageView)
+        imageView.frame = startRect
         
         //定义动画
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            dismissView.alpha = 0.0
+            imageView.frame = presenteDelegate.startRect(indexPath: indexpath)
         }) { (_) in
-            dismissView.removeFromSuperview()
+            imageView.removeFromSuperview()
             transitionContext.completeTransition(true)
         }
         

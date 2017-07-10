@@ -18,7 +18,7 @@ class WBPhotoBrowserCollectionViewCell: UICollectionViewCell {
             guard let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: picURL.absoluteString) else {
                 return
             }
-            imageView.frame = caclulateFrame(image: image)
+            imageView.frame = image.caclulateFrameInFullScreenMode()
             progressView.isHidden = false
             imageView.sd_setImage(with: getBigPictureURL(smallURL: picURL), placeholderImage: image, options: [], progress: { (current, total, _) in
                 DispatchQueue.main.async {
@@ -67,19 +67,6 @@ extension WBPhotoBrowserCollectionViewCell {
         progressView.backgroundColor = UIColor.clear
     }
     
-    func caclulateFrame(image: UIImage) -> CGRect {
-        let width = UIScreen.main.bounds.width
-        let height = width / image.size.width * image.size.height
-        
-        var y :CGFloat = 0
-        if height > UIScreen.main.bounds.height {
-            y = 0
-        } else {
-            y = (UIScreen.main.bounds.height - height) * 0.5
-        }
-        
-        return CGRect(x: 0, y: y, width: width, height: height)
-    }
     
     func getBigPictureURL(smallURL : URL) -> URL {
         let smallURLStr = smallURL.absoluteString
