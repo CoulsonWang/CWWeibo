@@ -11,11 +11,11 @@ import UIKit
 class WBPhotoBrowserAnimator: NSObject {
     var isPresented : Bool = false
     
-    var presentDelegate : WBPhotoBrowserAnimatorPresentDelegate?
+    weak var presentDelegate : WBPhotoBrowserAnimatorPresentDelegate?
     
     var indexPath : IndexPath?
     
-    var dismissDelegate : WBPhotoBrowserAnimatorDismissDelegate?
+    weak var dismissDelegate : WBPhotoBrowserAnimatorDismissDelegate?
     
 }
 
