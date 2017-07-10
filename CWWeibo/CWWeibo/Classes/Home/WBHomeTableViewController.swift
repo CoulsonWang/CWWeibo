@@ -20,6 +20,7 @@ class WBHomeTableViewController: WBBaseTableViewController {
     fileprivate lazy var popoverAnimator : WBPopoverAnimator = WBPopoverAnimator()
     fileprivate lazy var statusViewModels : [WBStatusViewModel] = [WBStatusViewModel]()
     fileprivate lazy var tipsLabel : UILabel = UILabel()
+    fileprivate lazy var photoBrowserAnimator = WBPhotoBrowserAnimator()
     // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,7 +130,11 @@ extension WBHomeTableViewController {
         photoBrowserVC.indexPath = indexPath
         photoBrowserVC.picURLs = picURLs
         
-        present(photoBrowserVC, animated: false, completion: nil)
+        //自定义转场
+        photoBrowserVC.modalPresentationStyle = .custom
+        photoBrowserVC.transitioningDelegate = photoBrowserAnimator
+        
+        present(photoBrowserVC, animated: true, completion: nil)
     }
 }
 

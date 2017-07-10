@@ -34,14 +34,14 @@ class WBPhotoBrowserViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        view.bounds.size.width += 20
+        view.frame.size.width += 20
     }
 
 }
 
 
 extension WBPhotoBrowserViewController {
-    func setupUIs() {
+    fileprivate func setupUIs() {
         view.addSubview(collectionView)
         view.addSubview(closeButton)
         view.addSubview(saveButton)
@@ -60,7 +60,7 @@ extension WBPhotoBrowserViewController {
         
         collectionView.register(WBPhotoBrowserCollectionViewCell.self, forCellWithReuseIdentifier: PhotoBrowserCellID)
         collectionView.dataSource = self
-        collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
+        collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closeButtonClick)))
         
         closeButton.addTarget(self, action: #selector(closeButtonClick), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(saveButtonClick), for: .touchUpInside)
@@ -98,10 +98,6 @@ extension WBPhotoBrowserViewController {
         } catch {
             SVProgressHUD.showError(withStatus: "保存失败")
         }
-    }
-    
-    @objc fileprivate func tap() {
-        dismiss(animated: false, completion: nil)
     }
 }
 

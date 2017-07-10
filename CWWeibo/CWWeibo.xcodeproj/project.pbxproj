@@ -57,6 +57,7 @@
 		B9CB800F1F124D8E0028E7D1 /* WBNavigationTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB80001F124D8E0028E7D1 /* WBNavigationTitleButton.swift */; };
 		B9CB80111F124DC30028E7D1 /* CWStringReplacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB80101F124DC30028E7D1 /* CWStringReplacer.swift */; };
 		B9DADF4B1F1278E0002D509F /* WBProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DADF4A1F1278E0002D509F /* WBProgressView.swift */; };
+		B9DFAA321F1346E400D7DDC6 /* WBPhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DFAA311F1346E400D7DDC6 /* WBPhotoBrowserAnimator.swift */; };
 		B9F945A61F0E03A0001370FE /* WBAuthorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945A41F0E03A0001370FE /* WBAuthorizeViewController.swift */; };
 		B9F945A71F0E03A0001370FE /* WBAuthorizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F945A51F0E03A0001370FE /* WBAuthorizeViewController.xib */; };
 		B9F945AB1F0E15DC001370FE /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F945AA1F0E15DC001370FE /* WBUserAccount.swift */; };
@@ -127,6 +128,7 @@
 		B9CB80001F124D8E0028E7D1 /* WBNavigationTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBNavigationTitleButton.swift; sourceTree = "<group>"; };
 		B9CB80101F124DC30028E7D1 /* CWStringReplacer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStringReplacer.swift; sourceTree = "<group>"; };
 		B9DADF4A1F1278E0002D509F /* WBProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBProgressView.swift; sourceTree = "<group>"; };
+		B9DFAA311F1346E400D7DDC6 /* WBPhotoBrowserAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPhotoBrowserAnimator.swift; sourceTree = "<group>"; };
 		B9F945A41F0E03A0001370FE /* WBAuthorizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBAuthorizeViewController.swift; sourceTree = "<group>"; };
 		B9F945A51F0E03A0001370FE /* WBAuthorizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBAuthorizeViewController.xib; sourceTree = "<group>"; };
 		B9F945AA1F0E15DC001370FE /* WBUserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				B98067551F12644A00D1D2BB /* WBPhotoBrowserViewController.swift */,
 				B98067571F126AF100D1D2BB /* WBPhotoBrowserCollectionViewCell.swift */,
 				B9DADF4A1F1278E0002D509F /* WBProgressView.swift */,
+				B9DFAA311F1346E400D7DDC6 /* WBPhotoBrowserAnimator.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				B9C5C33F1F0BDD1500878125 /* AppDelegate.swift in Sources */,
 				B9CB800B1F124D8E0028E7D1 /* EmoticonPackage.swift in Sources */,
 				B9A5E4411F0D236300DB9401 /* WBPopoverAnimator.swift in Sources */,
+				B9DFAA321F1346E400D7DDC6 /* WBPhotoBrowserAnimator.swift in Sources */,
 				B98067581F126AF100D1D2BB /* WBPhotoBrowserCollectionViewCell.swift in Sources */,
 				B9CB80091F124D8E0028E7D1 /* Emoticon.swift in Sources */,
 				B9CB80071F124D8E0028E7D1 /* EmoticonCell.swift in Sources */,
